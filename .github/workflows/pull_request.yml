@@ -1,9 +1,9 @@
-name: CI/CD Pipeline for Pull Requests to Master
+name: CI/CD Pipeline for Pull Requests to Main
 
-'on':
+on:
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   test:
     runs-on: ubuntu-latest

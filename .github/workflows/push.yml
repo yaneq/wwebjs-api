@@ -1,6 +1,6 @@
 name: CI/CD Pipeline for Docker Tag Push
 
-'on':
+on:
   push:
     tags:
       - 'v*'

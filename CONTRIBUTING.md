@@ -17,7 +17,7 @@ Welcome to WWebJS API Wrapper! We appreciate your interest in contributing to th
 
 ## Pull Requests
 
-- Create a pull request from your branch to the `master` branch of this repository.
+- Create a pull request from your branch to the `main` branch of this repository.
 - Provide a clear and descriptive title for your pull request.
 - Include a detailed description of the changes you made in the pull request.
 - Reference any related issues in your pull request description using the `#` symbol followed by the issue number.

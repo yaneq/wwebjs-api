@@ -137,7 +137,7 @@ npm run test
 
 ## Documentation
 
-API documentation can be found in the [`swagger.json`](https://raw.githubusercontent.com/avoylenko/wwebjs-api/master/swagger.json) file. See this file directly into [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/avoylenko/wwebjs-api/master/swagger.json) or any other OpenAPI-compatible tool to view and interact with the API documentation.
+API documentation can be found in the [`swagger.json`](https://raw.githubusercontent.com/avoylenko/wwebjs-api/main/swagger.json) file. See this file directly into [Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/avoylenko/wwebjs-api/main/swagger.json) or any other OpenAPI-compatible tool to view and interact with the API documentation.
 
 This documentation is straightforward if you are familiar with whatsapp-web.js library (https://docs.wwebjs.dev/)
 If you are still confused - open an issue and I'll improve it.
