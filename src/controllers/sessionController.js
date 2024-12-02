@@ -18,7 +18,7 @@ const startSession = async (req, res) => {
   // #swagger.description = 'Starts a session for the given session ID.'
   try {
     const sessionId = req.params.sessionId
-    const setupSessionReturn = setupSession(sessionId)
+    const setupSessionReturn = await setupSession(sessionId)
     if (!setupSessionReturn.success) {
       /* #swagger.responses[422] = {
         description: "Unprocessable Entity.",

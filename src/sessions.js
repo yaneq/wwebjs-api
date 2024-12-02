@@ -2,7 +2,7 @@ const { Client, LocalAuth } = require('whatsapp-web.js')
 const fs = require('fs')
 const path = require('path')
 const sessions = new Map()
-const { baseWebhookURL, sessionFolderPath, maxAttachmentSize, setMessagesAsSeen, webVersion, webVersionCacheType, recoverSessions, chromeBin, headless } = require('./config')
+const { baseWebhookURL, sessionFolderPath, maxAttachmentSize, setMessagesAsSeen, webVersion, webVersionCacheType, recoverSessions, chromeBin, headless, releaseBrowserLock } = require('./config')
 const { triggerWebhook, waitForNestedObject, checkIfEventisEnabled } = require('./utils')
 
 // Function to validate if the session is ready
@@ -65,7 +65,7 @@ const restoreSessions = () => {
       fs.mkdirSync(sessionFolderPath) // Create the session directory if it doesn't exist
     }
     // Read the contents of the folder
-    fs.readdir(sessionFolderPath, (_, files) => {
+    fs.readdir(sessionFolderPath, async (_, files) => {
       // Iterate through the files in the parent folder
       for (const file of files) {
         // Use regular expression to extract the string from the folder name
@@ -73,7 +73,7 @@ const restoreSessions = () => {
         if (match) {
           const sessionId = match[1]
           console.log('existing session detected', sessionId)
-          setupSession(sessionId)
+          await setupSession(sessionId)
         }
       }
     })
@@ -84,7 +84,7 @@ const restoreSessions = () => {
 }
 
 // Setup Session
-const setupSession = (sessionId) => {
+const setupSession = async (sessionId) => {
   try {
     if (sessions.has(sessionId)) {
       return { success: false, message: `Session already exists for: ${sessionId}`, client: sessions.get(sessionId) }
@@ -127,7 +127,22 @@ const setupSession = (sessionId) => {
 
     const client = new Client(clientOptions)
 
-    client.initialize().catch(err => console.log('Initialize error:', err.message))
+    if (releaseBrowserLock) {
+      // See https://github.com/puppeteer/puppeteer/issues/4860
+      const singletonLockPath = path.join(`${sessionFolderPath}-${sessionId}`, 'SingletonLock')
+      const singletonLockExists = await fs.promises.access(singletonLockPath).then(() => true).catch(() => false)
+      if (singletonLockExists) {
+        console.log('Browser lock file exists, removing ', sessionId)
+        await fs.promises.unlink(singletonLockPath)
+      }
+    }
+
+    try {
+      await client.initialize()
+    } catch (error) {
+      console.log('Initialize error:', error.message)
+      throw error
+    }
 
     initializeEvents(client, sessionId)
 
@@ -148,7 +163,7 @@ const initializeEvents = (client, sessionId) => {
       const restartSession = async (sessionId) => {
         sessions.delete(sessionId)
         await client.destroy().catch(e => { })
-        setupSession(sessionId)
+        await setupSession(sessionId)
       }
       client.pupPage.once('close', function () {
         // emitted when the page closes
@@ -402,7 +417,7 @@ const reloadSession = async (sessionId) => {
       }
     }
     sessions.delete(sessionId)
-    setupSession(sessionId)
+    await setupSession(sessionId)
   } catch (error) {
     console.log(error)
     throw error

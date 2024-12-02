@@ -43,11 +43,11 @@ const localCallbackExample = async (req, res) => {
   try {
     const { dataType, data } = req.body
     if (dataType === 'qr') { qrcode.generate(data.qr, { small: true }) }
-    await fsp.writeFile(`${sessionFolderPath}/message_log.txt`, `${JSON.stringify(req.body)}\r\n`, { flag: 'a+' }, _ => _)
+    await fsp.mkdir(sessionFolderPath, { recursive: true })
+    await fsp.writeFile(`${sessionFolderPath}/message_log.txt`, `${JSON.stringify(req.body)}\r\n`, { flag: 'a+' })
     res.json({ success: true })
   } catch (error) {
     console.log(error)
-    await fsp.writeFile(`${sessionFolderPath}/message_log.txt`, `(ERROR) ${JSON.stringify(error)}\r\n`, { flag: 'a+' }, _ => _)
     sendErrorResponse(res, 500, error.message)
   }
 }

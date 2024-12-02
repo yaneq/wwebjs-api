@@ -17,6 +17,7 @@ const rateLimitWindowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 1000
 const recoverSessions = (process.env.RECOVER_SESSIONS || '').toLowerCase() === 'true'
 const chromeBin = process.env.CHROME_BIN || null
 const headless = process.env.HEADLESS ? (process.env.HEADLESS).toLowerCase() === 'true' : true
+const releaseBrowserLock = process.env.RELEASE_BROWSER_LOCK ? (process.env.RELEASE_BROWSER_LOCK).toLowerCase() === 'true' : true
 
 module.exports = {
   sessionFolderPath,
@@ -33,5 +34,6 @@ module.exports = {
   rateLimitWindowMs,
   recoverSessions,
   chromeBin,
-  headless
+  headless,
+  releaseBrowserLock
 }
