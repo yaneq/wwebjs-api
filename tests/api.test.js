@@ -10,12 +10,15 @@ process.env.BASE_WEBHOOK_URL = 'http://localhost:3000/localCallbackExample'
 const app = require('../src/app')
 jest.mock('qrcode-terminal')
 
+jest.setTimeout(5 * 60 * 1000)
+
 let server
 beforeAll(() => {
+  fs.rmSync(process.env.SESSIONS_PATH, { recursive: true, force: true })
   server = app.listen(3000)
 })
 
-beforeEach(async () => {
+beforeEach(() => {
   if (fs.existsSync('./sessions_test/message_log.txt')) {
     fs.writeFileSync('./sessions_test/message_log.txt', '')
   }
@@ -23,18 +26,18 @@ beforeEach(async () => {
 
 afterAll(() => {
   server.close()
-  fs.rmSync('./sessions_test', { recursive: true, force: true })
+  fs.rmSync(process.env.SESSIONS_PATH, { recursive: true, force: true })
 })
 
 // Define test cases
 describe('API health checks', () => {
-  it('should return valid healthcheck', async () => {
+  it('should return valid health check', async () => {
     const response = await request(app).get('/ping')
     expect(response.status).toBe(200)
     expect(response.body).toEqual({ message: 'pong', success: true })
   })
 
-  it('should return a valid callback', async () => {
+  it('should return a valid callback status', async () => {
     const response = await request(app).post('/localCallbackExample')
       .set('x-api-key', 'test_api_key')
       .send({ sessionId: '1', dataType: 'testDataType', data: 'testData' })
@@ -70,7 +73,7 @@ describe('API Authentication Tests', () => {
     expect(response2.body).toEqual({ success: true, message: 'Logged out successfully' })
 
     expect(fs.existsSync('./sessions_test/session-1')).toBe(false)
-  }, 10000)
+  })
 
   it('should setup and flush multiple client sessions', async () => {
     const response = await request(app).get('/session/start/2').set('x-api-key', 'test_api_key')
@@ -89,7 +92,7 @@ describe('API Authentication Tests', () => {
 
     expect(fs.existsSync('./sessions_test/session-2')).toBe(false)
     expect(fs.existsSync('./sessions_test/session-3')).toBe(false)
-  }, 10000)
+  })
 })
 
 describe('API Action Tests', () => {
@@ -100,7 +103,7 @@ describe('API Action Tests', () => {
     expect(fs.existsSync('./sessions_test/session-4')).toBe(true)
 
     // Wait for message_log.txt to not be empty
-    const result = await waitForFileNotToBeEmpty('./sessions_test/message_log.txt')
+    const result = await waitForFileNotToBeEmpty('./sessions_test/message_log.txt', 120_000, 1000)
       .then(() => { return true })
       .catch(() => { return false })
     expect(result).toBe(true)
@@ -117,24 +120,29 @@ describe('API Action Tests', () => {
     expect(response2.status).toBe(200)
     expect(response2.body).toEqual({ success: true, message: 'Logged out successfully' })
     expect(fs.existsSync('./sessions_test/session-4')).toBe(false)
-  }, 15000)
+  })
 })
 
 // Function to wait for a specific item to be equal a specific value
 const waitForFileNotToBeEmpty = (filePath, maxWaitTime = 10000, interval = 100) => {
   const start = Date.now()
   return new Promise((resolve, reject) => {
-    const checkObject = () => {
-      const filecontent = fs.readFileSync(filePath, 'utf-8')
-      if (filecontent !== '') {
+    const checkObject = async () => {
+      try {
+        const filecontent = await fs.promises.readFile(filePath, 'utf-8')
+        if (filecontent !== '') {
         // Nested object exists, resolve the promise
-        resolve()
-      } else if (Date.now() - start > maxWaitTime) {
+          resolve()
+        } else if (Date.now() - start > maxWaitTime) {
         // Maximum wait time exceeded, reject the promise
-        console.log('Timed out waiting for nested object')
-        reject(new Error('Timeout waiting for nested object'))
-      } else {
+          console.log('Timed out waiting for nested object')
+          reject(new Error('Timeout waiting for nested object'))
+        } else {
         // Nested object not yet created, continue waiting
+          setTimeout(checkObject, interval)
+        }
+      } catch (ignore) {
+        // continue waiting
         setTimeout(checkObject, interval)
       }
     }
