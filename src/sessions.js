@@ -126,10 +126,9 @@ const setupSession = async (sessionId) => {
     }
 
     const client = new Client(clientOptions)
-
     if (releaseBrowserLock) {
       // See https://github.com/puppeteer/puppeteer/issues/4860
-      const singletonLockPath = path.join(`${sessionFolderPath}-${sessionId}`, 'SingletonLock')
+      const singletonLockPath = path.join(sessionFolderPath, `session-${sessionId}`, 'SingletonLock')
       const singletonLockExists = await fs.promises.access(singletonLockPath).then(() => true).catch(() => false)
       if (singletonLockExists) {
         console.log('Browser lock file exists, removing ', sessionId)
