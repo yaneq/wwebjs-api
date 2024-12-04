@@ -4,7 +4,7 @@ const { sessionFolderPath } = require('../config')
 const { sendErrorResponse } = require('../utils')
 
 /**
- * Responds to ping request with 'pong'
+ * Responds to request with 'pong'
  *
  * @function ping
  * @async
@@ -16,16 +16,25 @@ const { sendErrorResponse } = require('../utils')
 const ping = async (req, res) => {
   /*
     #swagger.tags = ['Various']
+    #swagger.summary = 'Health check'
+    #swagger.description = 'Responds to request with "pong" message'
+    #swagger.responses[200] = {
+      description: "Response message",
+      content: {
+        "application/json": {
+          example: {
+            success: true,
+            message: "pong"
+          }
+        }
+      }
+    }
   */
-  try {
-    res.json({ success: true, message: 'pong' })
-  } catch (error) {
-    sendErrorResponse(res, 500, error.message)
-  }
+  res.json({ success: true, message: 'pong' })
 }
 
 /**
- * Example local callback function that generates a QR code and writes a log file
+ * Example local callback that generates a QR code and writes a log file
  *
  * @function localCallbackExample
  * @async
@@ -39,6 +48,18 @@ const ping = async (req, res) => {
 const localCallbackExample = async (req, res) => {
   /*
     #swagger.tags = ['Various']
+    #swagger.summary = 'Local callback'
+    #swagger.description = 'Used to generate a QR code and writes a log file. ONLY FOR DEVELOPMENT/TEST PURPOSES.'
+    #swagger.responses[200] = {
+      description: "Response message",
+      content: {
+        "application/json": {
+          example: {
+            success: true
+          }
+        }
+      }
+    }
   */
   try {
     const { dataType, data } = req.body
@@ -47,6 +68,15 @@ const localCallbackExample = async (req, res) => {
     await fsp.writeFile(`${sessionFolderPath}/message_log.txt`, `${JSON.stringify(req.body)}\r\n`, { flag: 'a+' })
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     console.log(error)
     sendErrorResponse(res, 500, error.message)
   }
