@@ -226,6 +226,20 @@ const initializeEvents = (client, sessionId) => {
       })
     })
 
+  checkIfEventisEnabled('group_admin_changed')
+    .then(_ => {
+      client.on('group_admin_changed', (notification) => {
+        triggerWebhook(sessionWebhook, sessionId, 'group_admin_changed', { notification })
+      })
+    })
+
+  checkIfEventisEnabled('group_membership_request')
+    .then(_ => {
+      client.on('group_membership_request', (notification) => {
+        triggerWebhook(sessionWebhook, sessionId, 'group_membership_request', { notification })
+      })
+    })
+
   checkIfEventisEnabled('group_update')
     .then(_ => {
       client.on('group_update', (notification) => {
@@ -313,17 +327,15 @@ const initializeEvents = (client, sessionId) => {
 
   checkIfEventisEnabled('message_revoke_everyone')
     .then(_ => {
-      // eslint-disable-next-line camelcase
       client.on('message_revoke_everyone', async (message) => {
-        // eslint-disable-next-line camelcase
         triggerWebhook(sessionWebhook, sessionId, 'message_revoke_everyone', { message })
       })
     })
 
   checkIfEventisEnabled('message_revoke_me')
     .then(_ => {
-      client.on('message_revoke_me', async (message) => {
-        triggerWebhook(sessionWebhook, sessionId, 'message_revoke_me', { message })
+      client.on('message_revoke_me', async (message, revokedMsg) => {
+        triggerWebhook(sessionWebhook, sessionId, 'message_revoke_me', { message, revokedMsg })
       })
     })
 
@@ -368,6 +380,13 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('unread_count', async (chat) => {
         triggerWebhook(sessionWebhook, sessionId, 'unread_count', { chat })
+      })
+    })
+
+  checkIfEventisEnabled('vote_update')
+    .then(_ => {
+      client.on('vote_update', async (vote) => {
+        triggerWebhook(sessionWebhook, sessionId, 'vote_update', { vote })
       })
     })
 }
