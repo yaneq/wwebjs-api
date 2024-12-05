@@ -14,3 +14,7 @@ if (!baseWebhookURL) {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
+
+// puppeteer uses subscriptions to SIGINT, SIGTERM, and SIGHUP to know when to close browser instances
+// this disables the warnings when you starts more than 10 browser instances
+process.setMaxListeners(0)
