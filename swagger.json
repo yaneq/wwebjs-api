@@ -25,8 +25,7 @@
       "description": "All functions related to the client"
     },
     {
-      "name": "Message",
-      "description": "May fail if the message is too old (Only from the last 100 Messages of the given chat)"
+      "name": "Message"
     }
   ],
   "paths": {
@@ -158,7 +157,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -226,7 +225,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -287,7 +286,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -351,7 +350,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -419,7 +418,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -487,7 +486,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -533,7 +532,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -579,7 +578,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -650,7 +649,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -721,7 +720,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -821,7 +820,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -921,7 +920,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1041,7 +1040,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1112,7 +1111,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1212,7 +1211,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1312,7 +1311,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1383,7 +1382,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1483,7 +1482,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1583,7 +1582,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1683,7 +1682,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1754,7 +1753,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1854,7 +1853,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1954,7 +1953,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2025,7 +2024,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2135,7 +2134,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2235,7 +2234,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2335,7 +2334,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2425,7 +2424,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2496,7 +2495,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2596,7 +2595,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2706,7 +2705,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2806,7 +2805,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2836,7 +2835,10 @@
                   "options": {
                     "type": "object",
                     "description": "Search options",
-                    "example": {}
+                    "example": {
+                      "limit": 10,
+                      "page": 1
+                    }
                   }
                 }
               }
@@ -2853,7 +2855,10 @@
                   "options": {
                     "type": "object",
                     "description": "Search options",
-                    "example": {}
+                    "example": {
+                      "limit": 10,
+                      "page": 1
+                    }
                   }
                 }
               }
@@ -2916,7 +2921,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3121,7 +3126,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3192,7 +3197,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3263,7 +3268,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3363,7 +3368,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3439,9 +3444,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "403": {
             "description": "Forbidden.",
             "content": {
@@ -3473,7 +3475,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3573,7 +3575,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3598,7 +3600,7 @@
                   "status": {
                     "type": "string",
                     "description": "New status message",
-                    "example": "I'm running WhatsApp Web Api"
+                    "example": "I'm running WWebJS Api"
                   }
                 }
               }
@@ -3610,7 +3612,7 @@
                   "status": {
                     "type": "string",
                     "description": "New status message",
-                    "example": "I'm running WhatsApp Web Api"
+                    "example": "I'm running WWebJS Api"
                   }
                 }
               }
@@ -3673,7 +3675,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3773,7 +3775,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3873,7 +3875,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3973,7 +3975,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4044,7 +4046,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4115,7 +4117,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4215,7 +4217,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4315,7 +4317,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4415,7 +4417,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4515,7 +4517,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4615,7 +4617,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4715,7 +4717,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4815,7 +4817,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4915,7 +4917,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4939,7 +4941,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4951,7 +4953,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5015,7 +5017,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5039,7 +5041,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5051,7 +5053,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5115,7 +5117,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5139,7 +5141,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5151,7 +5153,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5215,7 +5217,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5239,7 +5241,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5251,7 +5253,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5315,7 +5317,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5431,7 +5433,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5455,7 +5457,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5467,7 +5469,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5531,7 +5533,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5555,7 +5557,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5567,7 +5569,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5631,7 +5633,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5655,7 +5657,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5667,7 +5669,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5731,7 +5733,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5755,7 +5757,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5767,7 +5769,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5831,7 +5833,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5855,7 +5857,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5867,7 +5869,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5931,7 +5933,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -5955,7 +5957,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5967,7 +5969,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6031,7 +6033,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6055,7 +6057,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6067,7 +6069,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "description": "Unique WhatsApp ID for the given chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6131,7 +6133,7 @@
             }
           },
           "500": {
-            "description": "Server Failure.",
+            "description": "Server failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -6244,6 +6246,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6260,7 +6272,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6272,7 +6284,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6333,6 +6345,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6349,7 +6371,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6361,7 +6383,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6422,6 +6444,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6438,7 +6470,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6450,7 +6482,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6511,6 +6543,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6527,7 +6569,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6539,7 +6581,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6600,6 +6642,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6616,7 +6668,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6628,7 +6680,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6689,6 +6741,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6705,7 +6767,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6717,7 +6779,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6778,6 +6840,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6794,7 +6866,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6806,7 +6878,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6867,6 +6939,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6883,7 +6965,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6895,7 +6977,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6956,6 +7038,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -6972,7 +7064,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -6984,7 +7076,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7045,6 +7137,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7061,7 +7163,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7073,7 +7175,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7134,6 +7236,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7150,7 +7262,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7162,7 +7274,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7223,6 +7335,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7239,7 +7361,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7251,7 +7373,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7312,6 +7434,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7328,7 +7460,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7340,7 +7472,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7401,6 +7533,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7417,7 +7559,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7429,7 +7571,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp ID for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -7444,6 +7586,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Get message",
         "description": "",
         "parameters": [
           {
@@ -7490,6 +7633,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7506,12 +7659,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7523,12 +7676,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7543,6 +7696,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Delete a message from the chat",
         "description": "",
         "parameters": [
           {
@@ -7589,6 +7743,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7605,13 +7769,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "everyone": {
+                    "type": "boolean",
+                    "description": "If true and the message is sent by the current user or the user is an admin, will delete it for everyone in the chat.",
+                    "example": true
                   }
                 }
               }
@@ -7622,13 +7791,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "everyone": {
+                    "type": "boolean",
+                    "description": "If true and the message is sent by the current user or the user is an admin, will delete it for everyone in the chat.",
+                    "example": true
                   }
                 }
               }
@@ -7642,6 +7816,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Download attached message media",
         "description": "",
         "parameters": [
           {
@@ -7688,6 +7863,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7704,12 +7889,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7721,12 +7906,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7741,6 +7926,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Delete a message from the chat",
         "description": "",
         "parameters": [
           {
@@ -7787,6 +7973,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7803,13 +7999,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "destinationChatId": {
+                    "type": "string",
+                    "description": "The chat id to forward the message to",
+                    "example": "6281288888889@c.us"
                   }
                 }
               }
@@ -7820,13 +8021,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "destinationChatId": {
+                    "type": "string",
+                    "description": "The chat id to forward the message to",
+                    "example": "6281288888889@c.us"
                   }
                 }
               }
@@ -7840,7 +8046,8 @@
         "tags": [
           "Message"
         ],
-        "description": "",
+        "summary": "Get information about message delivery status",
+        "description": "May return null if the message does not exist or is not sent by you.",
         "parameters": [
           {
             "name": "sessionId",
@@ -7886,6 +8093,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -7902,12 +8119,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7919,12 +8136,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -7939,6 +8156,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Get the contacts mentioned",
         "description": "",
         "parameters": [
           {
@@ -7985,6 +8203,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8001,12 +8229,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8018,12 +8246,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8038,6 +8266,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Get the order details",
         "description": "",
         "parameters": [
           {
@@ -8084,6 +8313,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8100,12 +8339,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8117,12 +8356,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8137,6 +8376,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Get the payment details",
         "description": "",
         "parameters": [
           {
@@ -8183,6 +8423,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8199,12 +8449,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8216,12 +8466,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8236,6 +8486,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Get the quoted message",
         "description": "",
         "parameters": [
           {
@@ -8282,6 +8533,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8298,12 +8559,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8315,12 +8576,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8335,6 +8596,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "React with an emoji",
         "description": "",
         "parameters": [
           {
@@ -8381,6 +8643,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8397,13 +8669,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "reaction": {
+                    "type": "string",
+                    "description": "Emoji to react with. Send an empty string to remove the reaction.",
+                    "example": "👍"
                   }
                 }
               }
@@ -8414,13 +8691,18 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "reaction": {
+                    "type": "string",
+                    "description": "Emoji to react with. Send an empty string to remove the reaction.",
+                    "example": "👍"
                   }
                 }
               }
@@ -8434,6 +8716,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Send a message as a reply",
         "description": "",
         "parameters": [
           {
@@ -8480,6 +8763,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8496,30 +8789,35 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp identifier for the message",
                     "example": "ABCDEF999999999"
+                  },
+                  "contentType": {
+                    "type": "string",
+                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact, Poll, Buttons, or List"
+                  },
+                  "content": {
+                    "type": "object",
+                    "description": "The content of the message, can be a string or an object"
+                  },
+                  "options": {
+                    "type": "object",
+                    "description": "The message send options"
                   }
                 }
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "chatId": {
-                    "type": "string",
-                    "description": "The Chat id which contains the message",
-                    "example": "6281288888888@c.us"
-                  },
-                  "messageId": {
-                    "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
-                    "example": "ABCDEF999999999"
+              },
+              "examples": {
+                "string": {
+                  "value": {
+                    "messageId": "3A80E857F9B44AF60C2C",
+                    "chatId": "6281288888888@c.us",
+                    "contentType": "string",
+                    "content": "Reply text!"
                   }
                 }
               }
@@ -8533,6 +8831,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Star the message",
         "description": "",
         "parameters": [
           {
@@ -8579,6 +8878,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8595,12 +8904,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8612,12 +8921,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8632,6 +8941,7 @@
         "tags": [
           "Message"
         ],
+        "summary": "Unstar the message",
         "description": "",
         "parameters": [
           {
@@ -8678,6 +8988,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8694,12 +9014,12 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8711,12 +9031,468 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message",
+                    "description": "The chat id which contains the message",
                     "example": "6281288888888@c.us"
                   },
                   "messageId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the message",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message/getReactions/{sessionId}": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "summary": "Get the reactions associated",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message/getGroupMentions/{sessionId}": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "summary": "Get groups mentioned in this message",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message/edit/{sessionId}": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "summary": "Edit the message",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the message",
+                    "example": "ABCDEF999999999"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "The content of the message"
+                  },
+                  "options": {
+                    "type": "object",
+                    "description": "Options used when editing the message"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the message",
+                    "example": "ABCDEF999999999"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "The content of the message"
+                  },
+                  "options": {
+                    "type": "object",
+                    "description": "Options used when editing the message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/message/getContact/{sessionId}": {
+      "post": {
+        "tags": [
+          "Message"
+        ],
+        "summary": "Get the contact",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
+                    "example": "ABCDEF999999999"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "The chat id which contains the message",
+                    "example": "6281288888888@c.us"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the message",
                     "example": "ABCDEF999999999"
                   }
                 }
@@ -8731,6 +9507,7 @@
         "tags": [
           "Contact"
         ],
+        "summary": "Get the contact",
         "description": "",
         "parameters": [
           {
@@ -8777,6 +9554,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8793,7 +9580,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8805,7 +9592,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8820,6 +9607,7 @@
         "tags": [
           "Contact"
         ],
+        "summary": "Block contact",
         "description": "",
         "parameters": [
           {
@@ -8866,6 +9654,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8882,7 +9680,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8894,7 +9692,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8909,7 +9707,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Get the contact's current info",
+        "description": "Get the Contact's current 'about' info. Returns null if you don't have permission to read their status.",
         "parameters": [
           {
             "name": "sessionId",
@@ -8955,6 +9754,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -8971,7 +9780,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8983,7 +9792,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -8998,7 +9807,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Get the chat",
+        "description": "Get the chat that corresponds to the contact. Will return null when getting chat for currently logged in user.",
         "parameters": [
           {
             "name": "sessionId",
@@ -9044,6 +9854,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9060,7 +9880,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9072,7 +9892,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9087,7 +9907,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Unblock the contact",
+        "description": "Unblock the contact from WhatsApp.",
         "parameters": [
           {
             "name": "sessionId",
@@ -9133,6 +9954,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9149,7 +9980,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9161,7 +9992,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9176,7 +10007,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Get the formatted phone number",
+        "description": "Returns the contact's formatted phone number, (12345678901@c.us) => (+1 (234) 5678-901).",
         "parameters": [
           {
             "name": "sessionId",
@@ -9222,6 +10054,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9238,7 +10080,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9250,7 +10092,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9265,7 +10107,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Get the country code",
+        "description": "Returns the contact's country code, (1541859685@c.us) => (1).",
         "parameters": [
           {
             "name": "sessionId",
@@ -9311,6 +10154,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9327,7 +10180,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9339,7 +10192,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9354,7 +10207,8 @@
         "tags": [
           "Contact"
         ],
-        "description": "",
+        "summary": "Get the profile picture URL",
+        "description": "Get the contact's profile picture URL, if privacy settings allow it.",
         "parameters": [
           {
             "name": "sessionId",
@@ -9400,6 +10254,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9416,7 +10280,7 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9428,7 +10292,107 @@
                 "properties": {
                   "contactId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the contact",
+                    "description": "Unique WhatsApp ID for the contact",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact/getCommonGroups/{sessionId}": {
+      "post": {
+        "tags": [
+          "Contact"
+        ],
+        "summary": "Get the contact's common groups",
+        "description": "Get the contact's common groups with you. Returns empty array if you don't have any common group.",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contactId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the contact",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "contactId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp ID for the contact",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -9550,7 +10514,7 @@
           },
           "error": {
             "type": "string",
-            "example": "Some server error"
+            "example": "Not found error"
           }
         },
         "xml": {

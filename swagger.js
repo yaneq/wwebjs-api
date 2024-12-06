@@ -36,8 +36,7 @@ const doc = {
       description: 'All functions related to the client'
     },
     {
-      name: 'Message',
-      description: 'May fail if the message is too old (Only from the last 100 Messages of the given chat)'
+      name: 'Message'
     }
   ],
   definitions: {
@@ -68,7 +67,7 @@ const doc = {
     },
     NotFoundResponse: {
       success: false,
-      error: 'Some server error'
+      error: 'Not found error'
     },
     ForbiddenResponse: {
       success: false,

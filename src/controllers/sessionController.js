@@ -45,15 +45,6 @@ const startSession = async (req, res) => {
     await waitForNestedObject(setupSessionReturn.client, 'pupPage')
     res.json({ success: true, message: setupSessionReturn.message })
   } catch (error) {
-  /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     console.log('startSession ERROR', error)
     sendErrorResponse(res, 500, error.message)
   }
@@ -88,15 +79,6 @@ const statusSession = async (req, res) => {
     res.json(sessionData)
   } catch (error) {
     console.log('statusSession ERROR', error)
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -127,15 +109,6 @@ const sessionQrCode = async (req, res) => {
     return res.json({ success: false, message: 'qr code not ready or already scanned' })
   } catch (error) {
     console.log('sessionQrCode ERROR', error)
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -177,15 +150,6 @@ const sessionQrCodeImage = async (req, res) => {
     return res.json({ success: false, message: 'qr code not ready or already scanned' })
   } catch (error) {
     console.log('sessionQrCodeImage ERROR', error)
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -222,15 +186,6 @@ const restartSession = async (req, res) => {
     */
     res.json({ success: true, message: 'Restarted successfully' })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     console.log('restartSession ERROR', error)
     sendErrorResponse(res, 500, error.message)
   }
@@ -268,15 +223,6 @@ const terminateSession = async (req, res) => {
     */
     res.json({ success: true, message: 'Logged out successfully' })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     console.log('terminateSession ERROR', error)
     sendErrorResponse(res, 500, error.message)
   }
@@ -308,15 +254,6 @@ const terminateInactiveSessions = async (req, res) => {
     */
     res.json({ success: true, message: 'Flush completed successfully' })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     console.log('terminateInactiveSessions ERROR', error)
     sendErrorResponse(res, 500, error.message)
   }
@@ -348,15 +285,6 @@ const terminateAllSessions = async (req, res) => {
     */
     res.json({ success: true, message: 'Flush completed successfully' })
   } catch (error) {
-  /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     console.log('terminateAllSessions ERROR', error)
     sendErrorResponse(res, 500, error.message)
   }

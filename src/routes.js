@@ -173,6 +173,10 @@ messageRouter.post('/react/:sessionId', [middleware.sessionNameValidation, middl
 messageRouter.post('/reply/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.reply)
 messageRouter.post('/star/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.star)
 messageRouter.post('/unstar/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.unstar)
+messageRouter.post('/getReactions/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.getReactions)
+messageRouter.post('/getGroupMentions/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.getGroupMentions)
+messageRouter.post('/edit/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.edit)
+messageRouter.post('/getContact/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], messageController.getContact)
 
 /**
  * ================
@@ -192,6 +196,7 @@ contactRouter.post('/unblock/:sessionId', [middleware.sessionNameValidation, mid
 contactRouter.post('/getFormattedNumber/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], contactController.getFormattedNumber)
 contactRouter.post('/getCountryCode/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], contactController.getCountryCode)
 contactRouter.post('/getProfilePicUrl/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], contactController.getProfilePicUrl)
+contactRouter.post('/getCommonGroups/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], contactController.getCommonGroups)
 /**
  * ================
  * SWAGGER ENDPOINTS

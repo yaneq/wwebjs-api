@@ -16,19 +16,6 @@ const { sendErrorResponse } = require('../utils')
 const getClassInfo = async (req, res) => {
   /*
     #swagger.summary = 'Get the chat'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          },
-        }
-      },
-    }
   */
   try {
     const { chatId } = req.body
@@ -40,15 +27,6 @@ const getClassInfo = async (req, res) => {
     }
     res.json({ success: true, chat })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -68,19 +46,6 @@ const getClassInfo = async (req, res) => {
 const clearMessages = async (req, res) => {
   /*
     #swagger.summary = 'Clear all messages from the chat'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          },
-        }
-      },
-    }
   */
   try {
     const { chatId } = req.body
@@ -93,15 +58,6 @@ const clearMessages = async (req, res) => {
     const result = await chat.clearMessages()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -121,19 +77,6 @@ const clearMessages = async (req, res) => {
 const clearState = async (req, res) => {
   /*
     #swagger.summary = 'Stop typing or recording in chat immediately'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          },
-        }
-      },
-    }
   */
   try {
     const { chatId } = req.body
@@ -146,15 +89,6 @@ const clearState = async (req, res) => {
     const result = await chat.clearState()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -175,19 +109,6 @@ const clearState = async (req, res) => {
 const deleteChat = async (req, res) => {
   /*
     #swagger.summary = 'Delete the chat'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          },
-        }
-      },
-    }
   */
   try {
     const { chatId } = req.body
@@ -200,15 +121,6 @@ const deleteChat = async (req, res) => {
     const result = await chat.delete()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -264,15 +176,6 @@ const fetchMessages = async (req, res) => {
     const messages = Object.keys(searchOptions).length ? await chat.fetchMessages(searchOptions) : await chat.fetchMessages()
     res.json({ success: true, messages })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -291,19 +194,6 @@ const fetchMessages = async (req, res) => {
 const getContact = async (req, res) => {
   /*
     #swagger.summary = 'Get the contact'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -316,15 +206,6 @@ const getContact = async (req, res) => {
     const contact = await chat.getContact()
     res.json({ success: true, contact })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -345,19 +226,6 @@ const sendStateRecording = async (req, res) => {
   /*
     #swagger.summary = 'Simulate recording audio'
     #swagger.description = 'Simulate recording audio in chat. This will last for 25 seconds'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -370,15 +238,6 @@ const sendStateRecording = async (req, res) => {
     const result = await chat.sendStateRecording()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -399,19 +258,6 @@ const sendStateTyping = async (req, res) => {
   /*
     #swagger.summary = 'Simulate typing in chat'
     #swagger.description = 'Simulate typing in chat. This will last for 25 seconds.'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -424,15 +270,6 @@ const sendStateTyping = async (req, res) => {
     const result = await chat.sendStateTyping()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -452,19 +289,6 @@ const sendStateTyping = async (req, res) => {
 const sendSeen = async (req, res) => {
   /*
     #swagger.summary = 'Set the message as seen'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -477,15 +301,6 @@ const sendSeen = async (req, res) => {
     const result = await chat.sendSeen()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -505,19 +320,6 @@ const sendSeen = async (req, res) => {
 const markUnread = async (req, res) => {
   /*
     #swagger.summary = 'Mark this chat as unread'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -530,15 +332,6 @@ const markUnread = async (req, res) => {
     const result = await chat.markUnread()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -558,19 +351,6 @@ const markUnread = async (req, res) => {
 const syncHistory = async (req, res) => {
   /*
     #swagger.summary = 'Sync chat history'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -583,15 +363,6 @@ const syncHistory = async (req, res) => {
     const result = await chat.syncHistory()
     res.json({ success: true, result })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -612,19 +383,6 @@ const getLabels = async (req, res) => {
   /*
     #swagger.summary = 'Return all labels'
     #swagger.description = 'Return array of all labels assigned to this chat'
-    #swagger.requestBody = {
-      required: true,
-      schema: {
-        type: 'object',
-        properties: {
-          chatId: {
-            type: 'string',
-            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
-          }
-        }
-      }
-    }
   */
   try {
     const { chatId } = req.body
@@ -637,15 +395,6 @@ const getLabels = async (req, res) => {
     const labels = await chat.getLabels()
     res.json({ success: true, labels })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -695,15 +444,6 @@ const changeLabels = async (req, res) => {
     await chat.changeLabels(labelIds)
     res.json({ success: true })
   } catch (error) {
-    /* #swagger.responses[500] = {
-      description: "Server Failure.",
-      content: {
-        "application/json": {
-          schema: { "$ref": "#/definitions/ErrorResponse" }
-        }
-      }
-    }
-    */
     sendErrorResponse(res, 500, error.message)
   }
 }
