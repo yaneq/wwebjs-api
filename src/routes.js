@@ -91,6 +91,15 @@ clientRouter.post('/unarchiveChat/:sessionId', [middleware.sessionNameValidation
 clientRouter.post('/unmuteChat/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.unmuteChat)
 clientRouter.post('/unpinChat/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.unpinChat)
 clientRouter.get('/getWWebVersion/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getWWebVersion)
+clientRouter.delete('/deleteProfilePicture/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.deleteProfilePicture)
+clientRouter.post('/setAutoDownloadAudio/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.setAutoDownloadAudio)
+clientRouter.post('/setAutoDownloadDocuments/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.setAutoDownloadDocuments)
+clientRouter.post('/setAutoDownloadPhotos/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.setAutoDownloadPhotos)
+clientRouter.post('/setAutoDownloadVideos/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.setAutoDownloadVideos)
+clientRouter.post('/syncHistory/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.syncHistory)
+clientRouter.post('/getContactDeviceCount/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getContactDeviceCount)
+clientRouter.post('/getCountryCode/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getCountryCode)
+clientRouter.post('/getFormattedNumber/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getFormattedNumber)
 
 /**
  * ================

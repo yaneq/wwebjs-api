@@ -601,6 +601,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get current connection information",
         "description": "",
         "parameters": [
           {
@@ -661,6 +662,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Accept an invitation to join a group",
         "description": "",
         "parameters": [
           {
@@ -750,6 +752,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Archive the chat",
         "description": "",
         "parameters": [
           {
@@ -839,6 +842,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Create a new group",
         "description": "",
         "parameters": [
           {
@@ -891,7 +895,56 @@
           {
             "apiKeyAuth": []
           }
-        ]
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Group title",
+                    "example": "Group name"
+                  },
+                  "participants": {
+                    "type": "array",
+                    "description": "A single contact ID as a string or an array of contact IDs to add to the group",
+                    "example": []
+                  },
+                  "options": {
+                    "type": "array",
+                    "description": "An object that handles options for group creation",
+                    "example": {}
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "description": "Group title",
+                    "example": "Group name"
+                  },
+                  "participants": {
+                    "type": "array",
+                    "description": "A single contact ID as a string or an array of contact IDs to add to the group",
+                    "example": []
+                  },
+                  "options": {
+                    "type": "array",
+                    "description": "An object that handles options for group creation",
+                    "example": {}
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/client/getBlockedContacts/{sessionId}": {
@@ -899,6 +952,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all blocked contacts by host account",
         "description": "",
         "parameters": [
           {
@@ -959,6 +1013,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get the chat",
         "description": "",
         "parameters": [
           {
@@ -1048,6 +1103,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all labels assigned to the chat",
         "description": "",
         "parameters": [
           {
@@ -1137,6 +1193,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all current chats",
         "description": "",
         "parameters": [
           {
@@ -1197,6 +1254,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all chats for a specific label",
         "description": "",
         "parameters": [
           {
@@ -1286,7 +1344,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Get the contact's common groups",
+        "description": "Get the contact's common groups with you. Returns empty array if you don't have any common group.",
         "parameters": [
           {
             "name": "sessionId",
@@ -1375,6 +1434,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get the contact",
         "description": "",
         "parameters": [
           {
@@ -1464,6 +1524,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all current contacts",
         "description": "",
         "parameters": [
           {
@@ -1524,7 +1585,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Return invite information",
+        "description": "Return an object with information about the invite code",
         "parameters": [
           {
             "name": "sessionId",
@@ -1584,9 +1646,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "inviteCode": {
+                  "displayName": {
                     "type": "string",
-                    "description": "Invitation code",
+                    "description": "New display name",
                     "example": ""
                   }
                 }
@@ -1596,9 +1658,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "inviteCode": {
+                  "displayName": {
                     "type": "string",
-                    "description": "Invitation code",
+                    "description": "New display name",
                     "example": ""
                   }
                 }
@@ -1613,6 +1675,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get the label",
         "description": "",
         "parameters": [
           {
@@ -1702,6 +1765,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get all current labels",
         "description": "",
         "parameters": [
           {
@@ -1762,6 +1826,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Change labels in chats",
         "description": "",
         "parameters": [
           {
@@ -1861,7 +1926,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Get the registered WhatsApp ID for a number",
+        "description": "Return null if the number is not registered on WhatsApp",
         "parameters": [
           {
             "name": "sessionId",
@@ -1950,6 +2016,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Check if a given ID is registered in WhatsApp",
         "description": "",
         "parameters": [
           {
@@ -2039,6 +2106,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Return the contact ID's profile picture URL",
         "description": "",
         "parameters": [
           {
@@ -2128,6 +2196,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Get the current connection state for the client",
         "description": "",
         "parameters": [
           {
@@ -2178,6 +2247,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Mark the chat as unread",
         "description": "",
         "parameters": [
           {
@@ -2267,7 +2337,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Mute the chat",
+        "description": "Mute this chat forever, unless a date is specified",
         "parameters": [
           {
             "name": "sessionId",
@@ -2334,8 +2405,8 @@
                   },
                   "unmuteDate": {
                     "type": "string",
-                    "description": "Date when the chat will be muted, leave as is to mute forever",
-                    "example": ""
+                    "description": "Timestamp when the chat will be muted, leave as is to mute forever",
+                    "example": "1733489397"
                   }
                 }
               }
@@ -2351,8 +2422,8 @@
                   },
                   "unmuteDate": {
                     "type": "string",
-                    "description": "Date when the chat will be muted, leave as is to mute forever",
-                    "example": ""
+                    "description": "Timestamp when the chat will be muted, leave as is to mute forever",
+                    "example": "1733489397"
                   }
                 }
               }
@@ -2366,6 +2437,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Pin the chat",
         "description": "",
         "parameters": [
           {
@@ -2455,6 +2527,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Search for messages",
         "description": "",
         "parameters": [
           {
@@ -2554,6 +2627,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Send a message to a specific chatId",
         "description": "",
         "parameters": [
           {
@@ -2620,7 +2694,7 @@
                   },
                   "contentType": {
                     "type": "string",
-                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Buttons, or List"
+                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact, Poll, Buttons, or List"
                   },
                   "content": {
                     "type": "object",
@@ -2748,6 +2822,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Mark the client as online",
         "description": "",
         "parameters": [
           {
@@ -2808,6 +2883,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Mark the client as unavailable",
         "description": "",
         "parameters": [
           {
@@ -2868,6 +2944,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Mark the chat as seen",
         "description": "",
         "parameters": [
           {
@@ -2957,7 +3034,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Set the current user",
+        "description": "This is the name shown to WhatsApp users that have not added you as a contact beside your number in groups and in your profile.",
         "parameters": [
           {
             "name": "sessionId",
@@ -3017,10 +3095,15 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "displayName": {
+                  "pictureMimetype": {
                     "type": "string",
-                    "description": "New display name",
-                    "example": ""
+                    "description": "The mimetype of the picture to set as the profile picture for the user WhatsApp account.",
+                    "example": "image/png"
+                  },
+                  "pictureData": {
+                    "type": "string",
+                    "description": "The base64 data of the picture to set as the profile picture for the user WhatsApp account.",
+                    "example": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX +/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
                   }
                 }
               }
@@ -3029,10 +3112,15 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "displayName": {
+                  "pictureMimetype": {
                     "type": "string",
-                    "description": "New display name",
-                    "example": ""
+                    "description": "The mimetype of the picture to set as the profile picture for the user WhatsApp account.",
+                    "example": "image/png"
+                  },
+                  "pictureData": {
+                    "type": "string",
+                    "description": "The base64 data of the picture to set as the profile picture for the user WhatsApp account.",
+                    "example": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX +/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
                   }
                 }
               }
@@ -3046,7 +3134,8 @@
         "tags": [
           "Client"
         ],
-        "description": "",
+        "summary": "Set the current user",
+        "description": "Each WaWeb Connection counts as one device, and the phone (if exists) counts as one device. So for a non-enterprise user with one WaWeb connection it should return \"2\"",
         "parameters": [
           {
             "name": "sessionId",
@@ -3060,9 +3149,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "403": {
             "description": "Forbidden.",
             "content": {
@@ -3106,15 +3192,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "pictureMimetype": {
+                  "number": {
                     "type": "string",
-                    "description": "The mimetype of the picture to set as the profile picture for the user WhatsApp account.",
-                    "example": "image/png"
-                  },
-                  "pictureData": {
-                    "type": "string",
-                    "description": "The base64 data of the picture to set as the profile picture for the user WhatsApp account.",
-                    "example": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX +/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                    "description": "Number or ID",
+                    "example": ""
                   }
                 }
               }
@@ -3123,15 +3204,10 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "pictureMimetype": {
+                  "number": {
                     "type": "string",
-                    "description": "The mimetype of the picture to set as the profile picture for the user WhatsApp account.",
-                    "example": "image/png"
-                  },
-                  "pictureData": {
-                    "type": "string",
-                    "description": "The base64 data of the picture to set as the profile picture for the user WhatsApp account.",
-                    "example": "iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX +/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                    "description": "Number or ID",
+                    "example": ""
                   }
                 }
               }
@@ -3145,6 +3221,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Set the current user's status message",
         "description": "",
         "parameters": [
           {
@@ -3234,6 +3311,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Changes archive state of the chat",
         "description": "",
         "parameters": [
           {
@@ -3323,6 +3401,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Unmute the chat",
         "description": "",
         "parameters": [
           {
@@ -3412,6 +3491,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Unpin the chat",
         "description": "",
         "parameters": [
           {
@@ -3501,6 +3581,7 @@
         "tags": [
           "Client"
         ],
+        "summary": "Return the version of WhatsApp Web currently being run",
         "description": "",
         "parameters": [
           {
@@ -3554,6 +3635,787 @@
             "apiKeyAuth": []
           }
         ]
+      }
+    },
+    "/client/deleteProfilePicture/{sessionId}": {
+      "delete": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Delete the current user's profile picture",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/client/setAutoDownloadAudio/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Set auto load download audio flag",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/setAutoDownloadDocuments/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Set auto load download documents flag",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/setAutoDownloadPhotos/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Set auto load download photos flag",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/setAutoDownloadVideos/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Set auto load download videos flag",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "flag": {
+                    "type": "boolean",
+                    "description": "Flag true/false",
+                    "example": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/syncHistory/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Sync chat history",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "ID of the chat",
+                    "example": ""
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "ID of the chat",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/getContactDeviceCount/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Get user device count",
+        "description": "Each WaWeb Connection counts as one device, and the phone (if exists) counts as one device. So for a non-enterprise user with one WaWeb connection it should return \"2\"",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID of the user",
+                    "example": ""
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID of the user",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/getCountryCode/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Get the country code",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "type": "string",
+                    "description": "Number or ID",
+                    "example": ""
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "type": "string",
+                    "description": "Number or ID",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/getFormattedNumber/{sessionId}": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "summary": "Get the formatted number",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "type": "string",
+                    "description": "Number or ID",
+                    "example": ""
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "number": {
+                    "type": "string",
+                    "description": "Number or ID",
+                    "example": ""
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/chat/getClassInfo/{sessionId}": {
