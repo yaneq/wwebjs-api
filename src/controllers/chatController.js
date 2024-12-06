@@ -14,13 +14,41 @@ const { sendErrorResponse } = require('../utils')
  * @throws {Error} - Throws an error if chat is not found or if there is a server error
  */
 const getClassInfo = async (req, res) => {
+  /*
+    #swagger.summary = 'Get the chat'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          },
+        }
+      },
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
     res.json({ success: true, chat })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -38,14 +66,42 @@ const getClassInfo = async (req, res) => {
  * @returns {Object} The success status and the cleared messages.
  */
 const clearMessages = async (req, res) => {
+  /*
+    #swagger.summary = 'Clear all messages from the chat'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          },
+        }
+      },
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const clearMessages = await chat.clearMessages()
-    res.json({ success: true, clearMessages })
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.clearMessages()
+    res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -63,14 +119,42 @@ const clearMessages = async (req, res) => {
  * @throws {Error} - If there was an error while clearing the state.
  */
 const clearState = async (req, res) => {
+  /*
+    #swagger.summary = 'Stop typing or recording in chat immediately'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          },
+        }
+      },
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const clearState = await chat.clearState()
-    res.json({ success: true, clearState })
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.clearState()
+    res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -89,14 +173,42 @@ const clearState = async (req, res) => {
  * @throws {Object} If the chat is not found, an error response is sent with a status code of 404.
  */
 const deleteChat = async (req, res) => {
+  /*
+    #swagger.summary = 'Delete the chat'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          },
+        }
+      },
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const deleteChat = await chat.delete()
-    res.json({ success: true, deleteChat })
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.delete()
+    res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -121,6 +233,8 @@ const deleteChat = async (req, res) => {
 const fetchMessages = async (req, res) => {
   try {
     /*
+    #swagger.summary = 'Load chat messages'
+    #swagger.description = 'Messages sorted from earliest to latest'
     #swagger.requestBody = {
       required: true,
       schema: {
@@ -128,25 +242,37 @@ const fetchMessages = async (req, res) => {
         properties: {
           chatId: {
             type: 'string',
-            description: 'Unique whatsApp identifier for the given Chat (either group or personnal)',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
             example: '6281288888888@c.us'
           },
           searchOptions: {
             type: 'object',
             description: 'Search options for fetching messages',
-            example: '{}'
+            example: { limit: 10, fromMe: true }
           }
         }
       }
     }
-  */
-    const { chatId, searchOptions } = req.body
+    */
+    const { chatId, searchOptions = {} } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const messages = await chat.fetchMessages(searchOptions)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const messages = Object.keys(searchOptions).length ? await chat.fetchMessages(searchOptions) : await chat.fetchMessages()
     res.json({ success: true, messages })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -163,14 +289,42 @@ const fetchMessages = async (req, res) => {
  * @throws {Error} - Throws an error if chat is not found or if there is an error getting the contact information
  */
 const getContact = async (req, res) => {
+  /*
+    #swagger.summary = 'Get the contact'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
     const contact = await chat.getContact()
     res.json({ success: true, contact })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -188,14 +342,43 @@ const getContact = async (req, res) => {
  * @throws {object} - An error object containing a status code and error message if an error occurs.
  */
 const sendStateRecording = async (req, res) => {
+  /*
+    #swagger.summary = 'Simulate recording audio'
+    #swagger.description = 'Simulate recording audio in chat. This will last for 25 seconds'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const sendStateRecording = await chat.sendStateRecording()
-    res.json({ success: true, sendStateRecording })
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.sendStateRecording()
+    res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -213,14 +396,314 @@ const sendStateRecording = async (req, res) => {
  * @throws {object} - An error object containing a status code and error message if an error occurs.
  */
 const sendStateTyping = async (req, res) => {
+  /*
+    #swagger.summary = 'Simulate typing in chat'
+    #swagger.description = 'Simulate typing in chat. This will last for 25 seconds.'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
-    if (!chat) { sendErrorResponse(res, 404, 'Chat not Found') }
-    const sendStateTyping = await chat.sendStateTyping()
-    res.json({ success: true, sendStateTyping })
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.sendStateTyping()
+    res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Send a seen state to a WhatsApp chat.
+ * @async
+ * @function
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {string} req.params.sessionId - The session ID.
+ * @param {object} req.body - The request body.
+ * @param {string} req.body.chatId - The ID of the chat to send the typing state to.
+ * @returns {object} - An object containing a success message and the result of the sendStateTyping method.
+ * @throws {object} - An error object containing a status code and error message if an error occurs.
+ */
+const sendSeen = async (req, res) => {
+  /*
+    #swagger.summary = 'Set the message as seen'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.sendSeen()
+    res.json({ success: true, result })
+  } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Mark this chat as unread.
+ * @async
+ * @function
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {string} req.params.sessionId - The session ID.
+ * @param {object} req.body - The request body.
+ * @param {string} req.body.chatId - The ID of the chat to send the typing state to.
+ * @returns {object} - An object containing a success message and the result of the sendStateTyping method.
+ * @throws {object} - An error object containing a status code and error message if an error occurs.
+ */
+const markUnread = async (req, res) => {
+  /*
+    #swagger.summary = 'Mark this chat as unread'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.markUnread()
+    res.json({ success: true, result })
+  } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Sync history.
+ * @async
+ * @function
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {string} req.params.sessionId - The session ID.
+ * @param {object} req.body - The request body.
+ * @param {string} req.body.chatId - The ID of the chat to send the typing state to.
+ * @returns {object} - An object containing a success message and the result of the sendStateTyping method.
+ * @throws {object} - An error object containing a status code and error message if an error occurs.
+ */
+const syncHistory = async (req, res) => {
+  /*
+    #swagger.summary = 'Sync chat history'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const result = await chat.syncHistory()
+    res.json({ success: true, result })
+  } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Return array of all labels.
+ * @async
+ * @function
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {string} req.params.sessionId - The session ID.
+ * @param {object} req.body - The request body.
+ * @param {string} req.body.chatId - The ID of the chat to send the typing state to.
+ * @returns {object} - An object containing a success message and the result of the sendStateTyping method.
+ * @throws {object} - An error object containing a status code and error message if an error occurs.
+ */
+const getLabels = async (req, res) => {
+  /*
+    #swagger.summary = 'Return all labels'
+    #swagger.description = 'Return array of all labels assigned to this chat'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    const labels = await chat.getLabels()
+    res.json({ success: true, labels })
+  } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Add or remove labels.
+ * @async
+ * @function
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ * @param {string} req.params.sessionId - The session ID.
+ * @param {object} req.body - The request body.
+ * @param {string} req.body.chatId - The ID of the chat to send the typing state to.
+ * @returns {object} - An object containing a success message and the result of the sendStateTyping method.
+ * @throws {object} - An error object containing a status code and error message if an error occurs.
+ */
+const changeLabels = async (req, res) => {
+  /*
+    #swagger.summary = 'Add or remove labels'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the given Chat (either group or personal)',
+            example: '6281288888888@c.us'
+          },
+          labelIds: {
+            type: 'array',
+            description: 'Array of (number or string)',
+            example: [0, 1]
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId, labelIds } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
+    await chat.changeLabels(labelIds)
+    res.json({ success: true })
+  } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -233,5 +716,10 @@ module.exports = {
   fetchMessages,
   getContact,
   sendStateRecording,
-  sendStateTyping
+  sendStateTyping,
+  sendSeen,
+  markUnread,
+  syncHistory,
+  getLabels,
+  changeLabels
 }

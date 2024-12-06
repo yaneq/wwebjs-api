@@ -119,6 +119,11 @@ chatRouter.post('/fetchMessages/:sessionId', [middleware.sessionNameValidation, 
 chatRouter.post('/getContact/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.getContact)
 chatRouter.post('/sendStateRecording/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.sendStateRecording)
 chatRouter.post('/sendStateTyping/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.sendStateTyping)
+chatRouter.post('/sendSeen/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.sendSeen)
+chatRouter.post('/markUnread/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.markUnread)
+chatRouter.post('/syncHistory/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.syncHistory)
+chatRouter.post('/getLabels/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.getLabels)
+chatRouter.post('/changeLabels/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], chatController.changeLabels)
 
 /**
  * ================
