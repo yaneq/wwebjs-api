@@ -124,6 +124,15 @@ const sendMessage = async (req, res) => {
 
     res.json({ success: true, message: messageOut })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     console.log(error)
     sendErrorResponse(res, 500, error.message)
   }
@@ -148,6 +157,15 @@ const getClassInfo = (req, res) => {
     const sessionInfo = client.info
     res.json({ success: true, sessionInfo })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -187,6 +205,15 @@ const isRegisteredUser = async (req, res) => {
     const result = await client.isRegisteredUser(number)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -227,6 +254,15 @@ const getNumberId = async (req, res) => {
     const result = await client.getNumberId(number)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -282,6 +318,15 @@ const createGroup = async (req, res) => {
     }
     res.json({ success: true, response })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -321,6 +366,15 @@ const setStatus = async (req, res) => {
     await client.setStatus(status)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -343,6 +397,15 @@ const getContacts = async (req, res) => {
     const contacts = await client.getContacts()
     res.json({ success: true, contacts })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -370,6 +433,15 @@ const getChats = async (req, res) => {
     const chats = await client.getChats()
     res.json({ success: true, chats })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -409,6 +481,15 @@ const getProfilePictureUrl = async (req, res) => {
     const result = await client.getProfilePicUrl(contactId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -449,6 +530,15 @@ const acceptInvite = async (req, res) => {
     const acceptInvite = await client.acceptInvite(inviteCode)
     res.json({ success: true, acceptInvite })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -474,6 +564,15 @@ const getWWebVersion = async (req, res) => {
     const result = await client.getWWebVersion()
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -514,6 +613,15 @@ const archiveChat = async (req, res) => {
     const result = await client.archiveChat(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -538,6 +646,15 @@ const getBlockedContacts = async (req, res) => {
     const blockedContacts = await client.getBlockedContacts()
     res.json({ success: true, blockedContacts })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -575,8 +692,21 @@ const getChatById = async (req, res) => {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
+    if (!chat) {
+      sendErrorResponse(res, 404, 'Chat not Found')
+      return
+    }
     res.json({ success: true, chat })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -616,6 +746,15 @@ const getChatLabels = async (req, res) => {
     const chatLabels = await client.getChatLabels(chatId)
     res.json({ success: true, chatLabels })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -655,6 +794,15 @@ const getChatsByLabelId = async (req, res) => {
     const chats = await client.getChatsByLabelId(labelId)
     res.json({ success: true, chats })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -694,6 +842,15 @@ const getCommonGroups = async (req, res) => {
     const groups = await client.getCommonGroups(contactId)
     res.json({ success: true, groups })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -732,6 +889,15 @@ const getContactById = async (req, res) => {
     const contact = await client.getContactById(contactId)
     res.json({ success: true, contact })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -771,6 +937,15 @@ const getInviteInfo = async (req, res) => {
     const inviteInfo = await client.getInviteInfo(inviteCode)
     res.json({ success: true, inviteInfo })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -810,6 +985,15 @@ const getLabelById = async (req, res) => {
     const label = await client.getLabelById(labelId)
     res.json({ success: true, label })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -833,6 +1017,15 @@ const getLabels = async (req, res) => {
     const labels = await client.getLabels()
     res.json({ success: true, labels })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -874,6 +1067,15 @@ const addOrRemoveLabels = async (req, res) => {
     await client.addOrRemoveLabels(labelIds, chatIds)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -897,6 +1099,15 @@ const getState = async (req, res) => {
     const state = await client.getState()
     res.json({ success: true, state })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -936,6 +1147,15 @@ const markChatUnread = async (req, res) => {
     await client.markChatUnread(chatId)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -986,6 +1206,15 @@ const muteChat = async (req, res) => {
     }
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1025,6 +1254,15 @@ const pinChat = async (req, res) => {
     const result = await client.pinChat(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1074,6 +1312,15 @@ const searchMessages = async (req, res) => {
     }
     res.json({ success: true, messages })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1097,6 +1344,15 @@ const sendPresenceAvailable = async (req, res) => {
     await client.sendPresenceAvailable()
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1120,6 +1376,15 @@ const sendPresenceUnavailable = async (req, res) => {
     await client.sendPresenceUnavailable()
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1158,6 +1423,15 @@ const sendSeen = async (req, res) => {
     const result = await client.sendSeen(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1197,6 +1471,15 @@ const setDisplayName = async (req, res) => {
     const result = await client.setDisplayName(displayName)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1235,6 +1518,15 @@ const unarchiveChat = async (req, res) => {
     const result = await client.unarchiveChat(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1274,6 +1566,15 @@ const unmuteChat = async (req, res) => {
     const result = await client.unmuteChat(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1313,6 +1614,15 @@ const unpinChat = async (req, res) => {
     const result = await client.unpinChat(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1357,6 +1667,15 @@ const setProfilePicture = async (req, res) => {
     const result = await client.setProfilePicture(media)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1378,6 +1697,15 @@ const deleteProfilePicture = async (req, res) => {
     const result = await client.deleteProfilePicture()
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1413,6 +1741,15 @@ const setAutoDownloadAudio = async (req, res) => {
     await client.setAutoDownloadAudio(flag)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1448,6 +1785,15 @@ const setAutoDownloadDocuments = async (req, res) => {
     await client.setAutoDownloadDocuments(flag)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1483,6 +1829,15 @@ const setAutoDownloadPhotos = async (req, res) => {
     await client.setAutoDownloadPhotos(flag)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1518,6 +1873,15 @@ const setAutoDownloadVideos = async (req, res) => {
     await client.setAutoDownloadVideos(flag)
     res.json({ success: true })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1557,6 +1921,15 @@ const syncHistory = async (req, res) => {
     const result = await client.syncHistory(chatId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1597,6 +1970,15 @@ const getContactDeviceCount = async (req, res) => {
     const result = await client.getContactDeviceCount(userId)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1636,6 +2018,15 @@ const getCountryCode = async (req, res) => {
     const result = await client.getCountryCode(number)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -1675,6 +2066,15 @@ const getFormattedNumber = async (req, res) => {
     const result = await client.getFormattedNumber(number)
     res.json({ success: true, result })
   } catch (error) {
+    /* #swagger.responses[500] = {
+      description: "Server Failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
+        }
+      }
+    }
+    */
     sendErrorResponse(res, 500, error.message)
   }
 }

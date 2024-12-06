@@ -648,6 +648,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -702,6 +712,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -799,6 +819,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -882,6 +912,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -999,6 +1039,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1053,6 +1103,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1150,6 +1210,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1240,6 +1310,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1294,6 +1374,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1391,6 +1481,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1474,6 +1574,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1571,6 +1681,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1625,6 +1745,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1722,6 +1852,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1812,6 +1952,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1866,6 +2016,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1973,6 +2133,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2056,6 +2226,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2153,6 +2333,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2233,6 +2423,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2287,6 +2487,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2377,6 +2587,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2484,6 +2704,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2567,6 +2797,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2667,6 +2907,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2869,6 +3119,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2930,6 +3190,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -2984,6 +3254,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3081,6 +3361,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3149,6 +3439,9 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "403": {
             "description": "Forbidden.",
             "content": {
@@ -3171,6 +3464,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3268,6 +3571,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3351,6 +3664,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3448,6 +3771,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3531,6 +3864,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3628,6 +3971,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3689,6 +4042,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3743,6 +4106,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3840,6 +4213,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -3923,6 +4306,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4020,6 +4413,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4103,6 +4506,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4200,6 +4613,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4283,6 +4706,16 @@
           },
           "422": {
             "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4380,6 +4813,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4423,6 +4866,7 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Get the chat",
         "description": "",
         "parameters": [
           {
@@ -4469,6 +4913,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4485,7 +4939,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4497,7 +4951,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4512,6 +4966,7 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Clear all messages from the chat",
         "description": "",
         "parameters": [
           {
@@ -4558,6 +5013,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4574,7 +5039,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4586,7 +5051,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4601,6 +5066,7 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Stop typing or recording in chat immediately",
         "description": "",
         "parameters": [
           {
@@ -4647,6 +5113,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4663,7 +5139,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4675,7 +5151,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4690,6 +5166,7 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Delete the chat",
         "description": "",
         "parameters": [
           {
@@ -4736,6 +5213,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4752,7 +5239,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4764,7 +5251,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4779,7 +5266,8 @@
         "tags": [
           "Chat"
         ],
-        "description": "",
+        "summary": "Load chat messages",
+        "description": "Messages sorted from earliest to latest",
         "parameters": [
           {
             "name": "sessionId",
@@ -4825,6 +5313,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4841,13 +5339,16 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   },
                   "searchOptions": {
                     "type": "object",
                     "description": "Search options for fetching messages",
-                    "example": "{}"
+                    "example": {
+                      "limit": 10,
+                      "fromMe": true
+                    }
                   }
                 }
               }
@@ -4858,13 +5359,16 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   },
                   "searchOptions": {
                     "type": "object",
                     "description": "Search options for fetching messages",
-                    "example": "{}"
+                    "example": {
+                      "limit": 10,
+                      "fromMe": true
+                    }
                   }
                 }
               }
@@ -4878,6 +5382,7 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Get the contact",
         "description": "",
         "parameters": [
           {
@@ -4924,6 +5429,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -4940,7 +5455,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4952,7 +5467,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -4967,7 +5482,8 @@
         "tags": [
           "Chat"
         ],
-        "description": "",
+        "summary": "Simulate recording audio",
+        "description": "Simulate recording audio in chat. This will last for 25 seconds",
         "parameters": [
           {
             "name": "sessionId",
@@ -5013,6 +5529,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5029,7 +5555,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5041,7 +5567,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5056,6 +5582,107 @@
         "tags": [
           "Chat"
         ],
+        "summary": "Simulate typing in chat",
+        "description": "Simulate typing in chat. This will last for 25 seconds.",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/sendSeen/{sessionId}": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Set the message as seen",
         "description": "",
         "parameters": [
           {
@@ -5102,6 +5729,16 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -5118,7 +5755,7 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
                   }
                 }
@@ -5130,8 +5767,424 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "Unique whatsApp identifier for the given Chat (either group or personnal)",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
                     "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/markUnread/{sessionId}": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Mark this chat as unread",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/syncHistory/{sessionId}": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Sync chat history",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/getLabels/{sessionId}": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Return all labels",
+        "description": "Return array of all labels assigned to this chat",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/changeLabels/{sessionId}": {
+      "post": {
+        "tags": [
+          "Chat"
+        ],
+        "summary": "Add or remove labels",
+        "description": "",
+        "parameters": [
+          {
+            "name": "sessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for the session (alphanumeric and - allowed)",
+            "example": "f8377d8d-a589-4242-9ba6-9486a04ef80c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFoundResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  },
+                  "labelIds": {
+                    "type": "array",
+                    "description": "Array of (number or string)",
+                    "example": [
+                      0,
+                      1
+                    ]
+                  }
+                }
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "chatId": {
+                    "type": "string",
+                    "description": "Unique WhatsApp identifier for the given Chat (either group or personal)",
+                    "example": "6281288888888@c.us"
+                  },
+                  "labelIds": {
+                    "type": "array",
+                    "description": "Array of (number or string)",
+                    "example": [
+                      0,
+                      1
+                    ]
                   }
                 }
               }
