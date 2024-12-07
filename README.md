@@ -62,17 +62,16 @@ docker-compose pull && docker-compose up
 | Actions                      | Status | Sessions                                | Status | Callbacks                                      | Status |
 | ----------------------------| ------| ----------------------------------------| ------| ----------------------------------------------| ------|
 | Send Image Message           | ✅     | Initiate session                       | ✅    | Callback QR code                               | ✅     |
-| Send Video Message           | ✅     | Terminate session                      | ✅    | Callback new message                           | ✅     |
+| Send Video Message(requires Google Chrome)           | ✅     | Terminate session                      | ✅    | Callback new message                           | ✅     |
 | Send Audio Message           | ✅     | Terminate inactive sessions            | ✅    | Callback status change                         | ✅     |
 | Send Document Message        | ✅     | Terminate all sessions                 | ✅    | Callback message media attachment              | ✅     |
-| Send File URL                | ✅     | Healthcheck                            | ✅    |                                                |        |
-| Send Button Message          | ✅     | Local test callback                    |        |                                                |        |
-| Send Contact Message         | ✅     |                                        |        |                                                |        |
-| Send List Message            | ✅     |                                        |        |                                                |        |
+| Send File URL                | ✅     | Restart session                            | ✅    |                                                |        |
+| Send Contact Message         | ✅     | Get session status                                      |  ✅      |                                                |        |
+| Send Poll Message         | ✅     | Health Check                                       |   ✅     |                                                |        |
+| Edit Message         | ✅     |                                        |        |                                                |        |
 | Set Status                   | ✅     |                                        |        |                                                |        |
-| Send Button With Media       | ✅     |                                        |        |                                                |        |
 | Is On Whatsapp?              | ✅     |                                        |        |                                                |        |
-| Download Profile Pic         | ✅     |                                        |        |                                                |        |
+| Download Profile Picture         | ✅     |                                        |        |                                                |        |
 | User Status                  | ✅     |                                        |        |                                                |        |
 | Block/Unblock User           | ✅     |                                        |        |                                                |        |
 | Update Profile Picture       | ✅     |                                        |        |                                                |        |
@@ -88,15 +87,15 @@ docker-compose pull && docker-compose up
 | Update Group Subject         | ✅     |                                        |        |                                                |        |
 | Update Group Description     | ✅     |                                        |        |                                                |        |
 
-3. Handle multiple client sessions (session data saved locally), identified by unique id
+1. Handle multiple client sessions (session data saved locally), identified by unique id
 
-4. All endpoints may be secured by a global API key
+2. All endpoints may be secured by a global API key
 
-5. On server start, all existing sessions are restored
+3. On server start, all existing sessions are restored
 
-6. Set messages automatically as read
+4. Set messages automatically as read
 
-7. Disable any of the callbacks
+5. Disable any of the callbacks
 
 ## Run Locally
 

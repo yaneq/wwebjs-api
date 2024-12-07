@@ -1,4 +1,4 @@
-const { MessageMedia, Location, Buttons, List, Poll } = require('whatsapp-web.js')
+const { MessageMedia, Location, Poll } = require('whatsapp-web.js')
 const { sessions } = require('../sessions')
 const { sendErrorResponse } = require('../utils')
 
@@ -418,7 +418,7 @@ const reply = async (req, res) => {
               },
               contentType: {
                 type: 'string',
-                description: 'The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact, Poll, Buttons, or List',
+                description: 'The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact or Poll',
               },
               content: {
                 type: 'object',
@@ -463,14 +463,6 @@ const reply = async (req, res) => {
       }
       case 'Location': {
         contentMessage = new Location(content.latitude, content.longitude, content.description)
-        break
-      }
-      case 'Buttons': {
-        contentMessage = new Buttons(content.body, content.buttons, content.title, content.footer)
-        break
-      }
-      case 'List': {
-        contentMessage = new List(content.body, content.buttonText, content.sections, content.title, content.footer)
         break
       }
       case 'Contact': {
