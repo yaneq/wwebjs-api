@@ -2945,11 +2945,11 @@
                 "properties": {
                   "chatId": {
                     "type": "string",
-                    "description": "The Chat id which contains the message (Group or Individual)"
+                    "description": "The chat id which contains the message (Group or Individual)"
                   },
                   "contentType": {
                     "type": "string",
-                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact, Poll, Buttons, or List"
+                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact or Poll"
                   },
                   "content": {
                     "type": "object",
@@ -2995,49 +2995,6 @@
                       "latitude": -6.2,
                       "longitude": 106.8,
                       "description": "Jakarta"
-                    }
-                  }
-                },
-                "Buttons": {
-                  "value": {
-                    "chatId": "6281288888888@c.us",
-                    "contentType": "Buttons",
-                    "content": {
-                      "body": "Hello World!",
-                      "buttons": [
-                        {
-                          "body": "button 1"
-                        }
-                      ],
-                      "title": "Hello World!",
-                      "footer": "Hello World!"
-                    }
-                  }
-                },
-                "List": {
-                  "value": {
-                    "chatId": "6281288888888@c.us",
-                    "contentType": "List",
-                    "content": {
-                      "body": "Hello World!",
-                      "buttonText": "Hello World!",
-                      "sections": [
-                        {
-                          "title": "sectionTitle",
-                          "rows": [
-                            {
-                              "id": "customId",
-                              "title": "ListItem2",
-                              "description": "desc"
-                            },
-                            {
-                              "title": "ListItem2"
-                            }
-                          ]
-                        }
-                      ],
-                      "title": "Hello World!",
-                      "footer": "Hello World!"
                     }
                   }
                 },
@@ -8799,7 +8756,7 @@
                   },
                   "contentType": {
                     "type": "string",
-                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact, Poll, Buttons, or List"
+                    "description": "The type of message content, must be one of the following: string, MessageMedia, MessageMediaFromURL, Location, Contact or Poll"
                   },
                   "content": {
                     "type": "object",
