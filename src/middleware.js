@@ -196,9 +196,17 @@ const groupChatSwagger = async (req, res, next) => {
         properties: {
           chatId: {
             type: 'string',
-            description: 'Unique WhatsApp ID for the given Chat (either group or personal)',
-            example: '6281288888888@c.us'
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
           }
+        }
+      }
+    }
+    #swagger.responses[500] = {
+      description: "Server failure.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/ErrorResponse" }
         }
       }
     }

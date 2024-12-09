@@ -149,6 +149,9 @@ groupChatRouter.post('/setMessagesAdminsOnly/:sessionId', [middleware.sessionNam
 groupChatRouter.post('/setSubject/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.setSubject)
 groupChatRouter.post('/setPicture/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.setPicture)
 groupChatRouter.post('/deletePicture/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.deletePicture)
+groupChatRouter.post('/getGroupMembershipRequests/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.getGroupMembershipRequests)
+groupChatRouter.post('/approveGroupMembershipRequests/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.approveGroupMembershipRequests)
+groupChatRouter.post('/rejectGroupMembershipRequests/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], groupChatController.rejectGroupMembershipRequests)
 
 /**
  * ================

@@ -3,6 +3,33 @@ const { sessions } = require('../sessions')
 const { sendErrorResponse } = require('../utils')
 
 /**
+ * Retrieves information about a chat based on the provided chatId
+ *
+ * @async
+ * @function getClassInfo
+ * @param {object} req - The request object
+ * @param {object} res - The response object
+ * @param {string} req.body.chatId - The chatId of the chat to retrieve information about
+ * @param {string} req.params.sessionId - The sessionId of the client making the request
+ * @throws {Error} The chat is not a group.
+ * @returns {Promise<void>} - A JSON response with success true and chat object containing chat information
+ */
+const getClassInfo = async (req, res) => {
+  /*
+    #swagger.summary = 'Get the group'
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat.isGroup) { throw new Error('The chat is not a group') }
+    res.json({ success: true, chat })
+  } catch (error) {
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
  * Adds participants to a group chat.
  * @async
  * @function
@@ -14,13 +41,40 @@ const { sendErrorResponse } = require('../utils')
  * @throws {Error} Throws an error if the chat is not a group chat.
 */
 const addParticipants = async (req, res) => {
+  /*
+    #swagger.summary = 'Add the participant(s)'
+    #swagger.description = 'Add a list of participants by id to the group'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          contactIds: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the contact',
+            example: '6281288888887@c.us'
+          },
+          options: {
+            type: 'object',
+            description: 'Options for adding participants',
+            example: { sleep: [250, 500], comment: '' }
+          }
+        }
+      }
+    }
+  */
   try {
-    const { chatId, contactIds } = req.body
+    const { chatId, contactIds, options = {} } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    await chat.addParticipants(contactIds)
-    res.json({ success: true, participants: chat.participants })
+    const result = Object.keys(options).length ? await chat.addParticipants(contactIds, options) : await chat.addParticipants(contactIds)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -37,13 +91,35 @@ const addParticipants = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const removeParticipants = async (req, res) => {
+  /*
+    #swagger.summary = 'Remove the participant(s)'
+    #swagger.description = 'Remove a list of participants by ID to the group'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          contactIds: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the contact',
+            example: '6281288888887@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId, contactIds } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    await chat.removeParticipants(contactIds)
-    res.json({ success: true, participants: chat.participants })
+    const result = await chat.removeParticipants(contactIds)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -60,13 +136,35 @@ const removeParticipants = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const promoteParticipants = async (req, res) => {
+  /*
+    #swagger.summary = 'Promote the participant(s)'
+    #swagger.description = 'Promote participants by IDs to admins'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          contactIds: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the contact',
+            example: '6281288888887@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId, contactIds } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    await chat.promoteParticipants(contactIds)
-    res.json({ success: true, participants: chat.participants })
+    const result = await chat.promoteParticipants(contactIds)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -83,13 +181,35 @@ const promoteParticipants = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const demoteParticipants = async (req, res) => {
+  /*
+    #swagger.summary = 'Demote the participant(s)'
+    #swagger.description = 'Demote participants by ids to regular users'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          contactIds: {
+            type: 'string',
+            description: 'Unique WhatsApp identifier for the contact',
+            example: '6281288888887@c.us'
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId, contactIds } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    await chat.demoteParticipants(contactIds)
-    res.json({ success: true, participants: chat.participants })
+    const result = await chat.demoteParticipants(contactIds)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -106,6 +226,10 @@ const demoteParticipants = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const getInviteCode = async (req, res) => {
+  /*
+    #swagger.summary = 'Get the invite code'
+    #swagger.description = 'Get the invite code for a specific group'
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
@@ -129,13 +253,34 @@ const getInviteCode = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const setSubject = async (req, res) => {
+  /*
+    #swagger.summary = 'Update the group subject'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          subject: {
+            type: 'string',
+            description: 'Group subject',
+            example: ''
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId, subject } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    const success = await chat.setSubject(subject)
-    res.json({ success, chat })
+    const result = await chat.setSubject(subject)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -152,13 +297,34 @@ const setSubject = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const setDescription = async (req, res) => {
+  /*
+    #swagger.summary = 'Update the group description'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          description: {
+            type: 'string',
+            description: 'Group description',
+            example: ''
+          }
+        }
+      }
+    }
+  */
   try {
     const { chatId, description } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    const success = await chat.setDescription(description)
-    res.json({ success, chat })
+    const result = await chat.setDescription(description)
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -175,37 +341,16 @@ const setDescription = async (req, res) => {
  * @throws {Error} If chat is not a group
  */
 const leave = async (req, res) => {
+  /*
+    #swagger.summary = 'Leave the group'
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    const outcome = await chat.leave()
-    res.json({ success: true, outcome })
-  } catch (error) {
-    sendErrorResponse(res, 500, error.message)
-  }
-}
-
-/**
- * Retrieves information about a chat based on the provided chatId
- *
- * @async
- * @function getClassInfo
- * @param {object} req - The request object
- * @param {object} res - The response object
- * @param {string} req.body.chatId - The chatId of the chat to retrieve information about
- * @param {string} req.params.sessionId - The sessionId of the client making the request
- * @throws {Error} The chat is not a group.
- * @returns {Promise<void>} - A JSON response with success true and chat object containing chat information
- */
-const getClassInfo = async (req, res) => {
-  try {
-    const { chatId } = req.body
-    const client = sessions.get(req.params.sessionId)
-    const chat = await client.getChatById(chatId)
-    if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    res.json({ success: true, chat })
+    const result = await chat.leave()
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -224,13 +369,17 @@ const getClassInfo = async (req, res) => {
  * @returns {Promise<void>} - A JSON response with success true and the new invite code for the group chat
  */
 const revokeInvite = async (req, res) => {
+  /*
+    #swagger.summary = 'Invalidate the invite code'
+    #swagger.description = 'Invalidate the current group invite code and generates a new one'
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
-    const newInviteCode = await chat.revokeInvite()
-    res.json({ success: true, newInviteCode })
+    const result = await chat.revokeInvite()
+    res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
   }
@@ -251,8 +400,30 @@ const revokeInvite = async (req, res) => {
  * @throws {Error} If the chat is not a group.
  */
 const setInfoAdminsOnly = async (req, res) => {
+  /*
+    #swagger.summary = 'Update the info group settings'
+    #swagger.summary = 'Update the group settings to only allow admins to edit group info (title, description, photo).'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          adminsOnly: {
+            type: 'boolean',
+            description: 'Enable or disable this option',
+            example: true
+          }
+        }
+      }
+    }
+  */
   try {
-    const { chatId, adminsOnly } = req.body
+    const { chatId, adminsOnly = true } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
@@ -278,8 +449,30 @@ const setInfoAdminsOnly = async (req, res) => {
  * @throws {Error} If the chat is not a group.
  */
 const setMessagesAdminsOnly = async (req, res) => {
+  /*
+    #swagger.summary = 'Update the message group settings'
+    #swagger.summary = 'Update the group settings to only allow admins to send messages.'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          adminsOnly: {
+            type: 'boolean',
+            description: 'Enable or disable this option',
+            example: true
+          }
+        }
+      }
+    }
+  */
   try {
-    const { chatId, adminsOnly } = req.body
+    const { chatId, adminsOnly = true } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
@@ -302,12 +495,36 @@ const setMessagesAdminsOnly = async (req, res) => {
  * @throws {Error} If there is an issue setting the group picture, an error will be thrown.
  */
 const setPicture = async (req, res) => {
+  /*
+    #swagger.summary = 'Set the group picture'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          pictureMimeType: {
+            type: 'string',
+            description: 'MIME type of the attachment'
+          },
+          pictureData: {
+            type: 'string',
+            description: 'Base64-encoded data of the file'
+          }
+        }
+      }
+    }
+  */
   try {
-    const { pictureMimetype, pictureData, chatId } = req.body
+    const { pictureMimeType, pictureData, chatId } = req.body
     const client = sessions.get(req.params.sessionId)
-    const media = new MessageMedia(pictureMimetype, pictureData)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
+    const media = new MessageMedia(pictureMimeType, pictureData)
     const result = await chat.setPicture(media)
     res.json({ success: true, result })
   } catch (error) {
@@ -325,12 +542,126 @@ const setPicture = async (req, res) => {
  * @throws {Error} If there is an issue setting the group picture, an error will be thrown.
  */
 const deletePicture = async (req, res) => {
+  /*
+    #swagger.summary = 'Delete the group picture'
+  */
   try {
     const { chatId } = req.body
     const client = sessions.get(req.params.sessionId)
     const chat = await client.getChatById(chatId)
     if (!chat.isGroup) { throw new Error('The chat is not a group') }
     const result = await chat.deletePicture()
+    res.json({ success: true, result })
+  } catch (error) {
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Get an array of membership requests
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Object} req.body.chatId - ID of the group chat.
+ * @param {string} req.params.sessionId - The ID of the session for the user.
+ * @returns {Object} Returns a JSON object with a success status and the result of the function.
+ * @throws {Error} If there is an issue setting the group picture, an error will be thrown.
+ */
+const getGroupMembershipRequests = async (req, res) => {
+  /*
+    #swagger.summary = 'Get the membership requests'
+  */
+  try {
+    const { chatId } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat.isGroup) { throw new Error('The chat is not a group') }
+    const result = await chat.getGroupMembershipRequests()
+    res.json({ success: true, result })
+  } catch (error) {
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Approve membership requests if any
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Object} req.body.chatId - ID of the group chat.
+ * @param {string} req.params.sessionId - The ID of the session for the user.
+ * @returns {Object} Returns a JSON object with a success status and the result of the function.
+ * @throws {Error} If there is an issue setting the group picture, an error will be thrown.
+ */
+const approveGroupMembershipRequests = async (req, res) => {
+  /*
+    #swagger.summary = 'Approve membership request'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          options: {
+            type: 'object',
+            description: 'Options for performing a membership request action',
+            example: { requesterIds: [], sleep: [250, 500] }
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId, options = {} } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat.isGroup) { throw new Error('The chat is not a group') }
+    const result = await chat.approveGroupMembershipRequests(options)
+    res.json({ success: true, result })
+  } catch (error) {
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
+/**
+ * Reject membership requests if any
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Object} req.body.chatId - ID of the group chat.
+ * @param {string} req.params.sessionId - The ID of the session for the user.
+ * @returns {Object} Returns a JSON object with a success status and the result of the function.
+ * @throws {Error} If there is an issue setting the group picture, an error will be thrown.
+ */
+const rejectGroupMembershipRequests = async (req, res) => {
+  /*
+    #swagger.summary = 'Reject membership request'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          chatId: {
+            type: 'string',
+            description: 'Unique WhatsApp id for the given chat group',
+            example: 'XXXXXXXXXX@g.us'
+          },
+          options: {
+            type: 'object',
+            description: 'Options for performing a membership request action',
+            example: { requesterIds: [], sleep: [250, 500] }
+          }
+        }
+      }
+    }
+  */
+  try {
+    const { chatId, options = {} } = req.body
+    const client = sessions.get(req.params.sessionId)
+    const chat = await client.getChatById(chatId)
+    if (!chat.isGroup) { throw new Error('The chat is not a group') }
+    const result = await chat.rejectGroupMembershipRequests(options)
     res.json({ success: true, result })
   } catch (error) {
     sendErrorResponse(res, 500, error.message)
@@ -351,5 +682,8 @@ module.exports = {
   setMessagesAdminsOnly,
   setSubject,
   setPicture,
-  deletePicture
+  deletePicture,
+  getGroupMembershipRequests,
+  approveGroupMembershipRequests,
+  rejectGroupMembershipRequests
 }
