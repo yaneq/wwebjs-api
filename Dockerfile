@@ -1,21 +1,20 @@
-# Use the official Node.js Alpine image as the base image
-FROM node:18-alpine
+# Use the official Node.js Debian image as the base image
+FROM node:18-bookworm-slim
 
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Install Chromium
-ENV CHROME_BIN="/usr/bin/chromium-browser" \
+# Install
+ENV CHROME_BIN="/usr/bin/chromium" \
     PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="true" \
     NODE_ENV="production"
 RUN set -x \
-    && apk update \
-    && apk upgrade \
-    && apk add --no-cache \
-    udev \
-    ttf-freefont \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+    fonts-freefont-ttf \
     chromium \
-    ffmpeg
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
