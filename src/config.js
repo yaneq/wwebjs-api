@@ -18,6 +18,7 @@ const recoverSessions = (process.env.RECOVER_SESSIONS || '').toLowerCase() === '
 const chromeBin = process.env.CHROME_BIN || null
 const headless = process.env.HEADLESS ? (process.env.HEADLESS).toLowerCase() === 'true' : true
 const releaseBrowserLock = process.env.RELEASE_BROWSER_LOCK ? (process.env.RELEASE_BROWSER_LOCK).toLowerCase() === 'true' : true
+const logLevel = process.env.LOGLEVEL || 'info'
 
 module.exports = {
   sessionFolderPath,
@@ -35,5 +36,6 @@ module.exports = {
   recoverSessions,
   chromeBin,
   headless,
-  releaseBrowserLock
+  releaseBrowserLock,
+  logLevel
 }

@@ -1,10 +1,12 @@
 const axios = require('axios')
 const { globalApiKey, disabledCallbacks } = require('./config')
+const { logger } = require('./logger')
 
 // Trigger webhook endpoint
 const triggerWebhook = (webhookURL, sessionId, dataType, data) => {
   axios.post(webhookURL, { dataType, data, sessionId }, { headers: { 'x-api-key': globalApiKey } })
-    .catch(error => console.error('Failed to send new message webhook:', sessionId, dataType, error.message, data || ''))
+    .then(() => logger.debug({ sessionId, dataType, data: data || '' }, `New webhook message sent to ${webhookURL}`))
+    .catch(error => logger.error({ sessionId, dataType, err: error, data: data || '' }, `Failed to send new webhook message to ${webhookURL}`))
 }
 
 // Function to send a response with error status and message
@@ -23,7 +25,7 @@ const waitForNestedObject = (rootObj, nestedPath, maxWaitTime = 10000, interval 
         resolve()
       } else if (Date.now() - start > maxWaitTime) {
         // Maximum wait time exceeded, reject the promise
-        console.log('Timed out waiting for nested object')
+        logger.error('Timed out waiting for nested object')
         reject(new Error('Timeout waiting for nested object'))
       } else {
         // Nested object not yet created, continue waiting
@@ -35,12 +37,22 @@ const waitForNestedObject = (rootObj, nestedPath, maxWaitTime = 10000, interval 
 }
 
 const checkIfEventisEnabled = (event) => {
-  return new Promise((resolve, reject) => { if (!disabledCallbacks.includes(event)) { resolve() } })
+  return new Promise((resolve) => { if (!disabledCallbacks.includes(event)) { resolve() } })
+}
+
+const sendMessageSeenStatus = async (message) => {
+  try {
+    const chat = await message.getChat()
+    await chat.sendSeen()
+  } catch (error) {
+    logger.error(error, 'Failed to send seen status')
+  }
 }
 
 module.exports = {
   triggerWebhook,
   sendErrorResponse,
   waitForNestedObject,
-  checkIfEventisEnabled
+  checkIfEventisEnabled,
+  sendMessageSeenStatus
 }

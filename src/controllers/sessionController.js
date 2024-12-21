@@ -1,6 +1,7 @@
 const qr = require('qr-image')
 const { setupSession, deleteSession, reloadSession, validateSession, flushSessions, sessions } = require('../sessions')
 const { sendErrorResponse, waitForNestedObject } = require('../utils')
+const { logger } = require('../logger')
 
 /**
  * Starts a session for the given session ID.
@@ -16,8 +17,8 @@ const { sendErrorResponse, waitForNestedObject } = require('../utils')
 const startSession = async (req, res) => {
   // #swagger.summary = 'Start new session'
   // #swagger.description = 'Starts a session for the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const setupSessionReturn = await setupSession(sessionId)
     if (!setupSessionReturn.success) {
       /* #swagger.responses[422] = {
@@ -45,7 +46,7 @@ const startSession = async (req, res) => {
     await waitForNestedObject(setupSessionReturn.client, 'pupPage')
     res.json({ success: true, message: setupSessionReturn.message })
   } catch (error) {
-    console.log('startSession ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to start session')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -64,8 +65,8 @@ const startSession = async (req, res) => {
 const statusSession = async (req, res) => {
   // #swagger.summary = 'Get session status'
   // #swagger.description = 'Status of the session with the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const sessionData = await validateSession(sessionId)
     /* #swagger.responses[200] = {
       description: "Status of the session.",
@@ -78,7 +79,7 @@ const statusSession = async (req, res) => {
     */
     res.json(sessionData)
   } catch (error) {
-    console.log('statusSession ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to get session status')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -97,8 +98,8 @@ const statusSession = async (req, res) => {
 const sessionQrCode = async (req, res) => {
   // #swagger.summary = 'Get session QR code'
   // #swagger.description = 'QR code of the session with the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const session = sessions.get(sessionId)
     if (!session) {
       return res.json({ success: false, message: 'session_not_found' })
@@ -108,7 +109,7 @@ const sessionQrCode = async (req, res) => {
     }
     return res.json({ success: false, message: 'qr code not ready or already scanned' })
   } catch (error) {
-    console.log('sessionQrCode ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to get session qr code')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -127,8 +128,8 @@ const sessionQrCode = async (req, res) => {
 const sessionQrCodeImage = async (req, res) => {
   // #swagger.summary = 'Get session QR code as image'
   // #swagger.description = 'QR code as image of the session with the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const session = sessions.get(sessionId)
     if (!session) {
       return res.json({ success: false, message: 'session_not_found' })
@@ -149,7 +150,7 @@ const sessionQrCodeImage = async (req, res) => {
     }
     return res.json({ success: false, message: 'qr code not ready or already scanned' })
   } catch (error) {
-    console.log('sessionQrCodeImage ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to get session qr code image')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -168,8 +169,8 @@ const sessionQrCodeImage = async (req, res) => {
 const restartSession = async (req, res) => {
   // #swagger.summary = 'Restart session'
   // #swagger.description = 'Restarts the session with the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const validation = await validateSession(sessionId)
     if (validation.message === 'session_not_found') {
       return res.json(validation)
@@ -186,7 +187,7 @@ const restartSession = async (req, res) => {
     */
     res.json({ success: true, message: 'Restarted successfully' })
   } catch (error) {
-    console.log('restartSession ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to restart session')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -205,8 +206,8 @@ const restartSession = async (req, res) => {
 const terminateSession = async (req, res) => {
   // #swagger.summary = 'Terminate session'
   // #swagger.description = 'Terminates the session with the given session ID.'
+  const sessionId = req.params.sessionId
   try {
-    const sessionId = req.params.sessionId
     const validation = await validateSession(sessionId)
     if (validation.message === 'session_not_found') {
       return res.json(validation)
@@ -223,7 +224,7 @@ const terminateSession = async (req, res) => {
     */
     res.json({ success: true, message: 'Logged out successfully' })
   } catch (error) {
-    console.log('terminateSession ERROR', error)
+    logger.error({ sessionId, err: error }, 'Failed to terminate session')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -254,7 +255,7 @@ const terminateInactiveSessions = async (req, res) => {
     */
     res.json({ success: true, message: 'Flush completed successfully' })
   } catch (error) {
-    console.log('terminateInactiveSessions ERROR', error)
+    logger.error(error, 'Failed to terminate inactive sessions')
     sendErrorResponse(res, 500, error.message)
   }
 }
@@ -285,7 +286,7 @@ const terminateAllSessions = async (req, res) => {
     */
     res.json({ success: true, message: 'Flush completed successfully' })
   } catch (error) {
-    console.log('terminateAllSessions ERROR', error)
+    logger.error(error, 'Failed to terminate all sessions')
     sendErrorResponse(res, 500, error.message)
   }
 }

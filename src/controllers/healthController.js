@@ -2,6 +2,7 @@ const fsp = require('fs').promises
 const qrcode = require('qrcode-terminal')
 const { sessionFolderPath } = require('../config')
 const { sendErrorResponse } = require('../utils')
+const { logger } = require('../logger')
 
 /**
  * Responds to request with 'pong'
@@ -77,7 +78,7 @@ const localCallbackExample = async (req, res) => {
       }
     }
     */
-    console.log(error)
+    logger.error(error, 'Failed to handle local callback')
     sendErrorResponse(res, 500, error.message)
   }
 }

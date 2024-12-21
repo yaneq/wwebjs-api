@@ -105,11 +105,10 @@ const sendMessage = async (req, res) => {
         break
       }
       default:
-        return sendErrorResponse(res, 400, 'contentType invalid, must be string, MessageMedia, MessageMediaFromURL, Location, Buttons, List, Contact or Poll')
+        return sendErrorResponse(res, 400, 'invalid contentType')
     }
     res.json({ success: true, message: messageOut })
   } catch (error) {
-    console.log(error)
     sendErrorResponse(res, 500, error.message)
   }
 }

@@ -3,7 +3,8 @@ const fs = require('fs')
 const path = require('path')
 const sessions = new Map()
 const { baseWebhookURL, sessionFolderPath, maxAttachmentSize, setMessagesAsSeen, webVersion, webVersionCacheType, recoverSessions, chromeBin, headless, releaseBrowserLock } = require('./config')
-const { triggerWebhook, waitForNestedObject, checkIfEventisEnabled } = require('./utils')
+const { triggerWebhook, waitForNestedObject, checkIfEventisEnabled, sendMessageSeenStatus } = require('./utils')
+const { logger } = require('./logger')
 
 // Function to validate if the session is ready
 const validateSession = async (sessionId) => {
@@ -53,7 +54,7 @@ const validateSession = async (sessionId) => {
     returnData.message = 'session_connected'
     return returnData
   } catch (error) {
-    console.log(error)
+    logger.error({ sessionId, err: error }, 'Failed to validate session')
     return { success: false, state: null, message: error.message }
   }
 }
@@ -72,14 +73,13 @@ const restoreSessions = () => {
         const match = file.match(/^session-(.+)$/)
         if (match) {
           const sessionId = match[1]
-          console.log('existing session detected', sessionId)
+          logger.warn({ sessionId }, 'existing session detected')
           await setupSession(sessionId)
         }
       }
     })
   } catch (error) {
-    console.log(error)
-    console.error('Failed to restore sessions:', error)
+    logger.error(error, 'Failed to restore sessions')
   }
 }
 
@@ -131,7 +131,7 @@ const setupSession = async (sessionId) => {
       const singletonLockPath = path.resolve(path.join(sessionFolderPath, `session-${sessionId}`, 'SingletonLock'))
       const singletonLockExists = await fs.promises.lstat(singletonLockPath).then(() => true).catch(() => false)
       if (singletonLockExists) {
-        console.log('Browser lock file exists, removing ', sessionId)
+        logger.warn({ sessionId }, 'Browser lock file exists, removing')
         await fs.promises.unlink(singletonLockPath)
       }
     }
@@ -139,7 +139,7 @@ const setupSession = async (sessionId) => {
     try {
       await client.initialize()
     } catch (error) {
-      console.log('Initialize error:', error.message)
+      logger.error({ sessionId, err: error }, 'Initialize error')
       throw error
     }
 
@@ -166,12 +166,12 @@ const initializeEvents = (client, sessionId) => {
       }
       client.pupPage.once('close', function () {
         // emitted when the page closes
-        console.log(`Browser page closed for ${sessionId}. Restoring`)
+        logger.warn({ sessionId }, 'Browser page closed. Restoring')
         restartSession(sessionId)
       })
       client.pupPage.once('error', function () {
         // emitted when the page crashes
-        console.log(`Error occurred on browser page for ${sessionId}. Restoring`)
+        logger.warn({ sessionId }, 'Error occurred on browser page. Restoring')
         restartSession(sessionId)
       })
     }).catch(e => { })
@@ -270,14 +270,13 @@ const initializeEvents = (client, sessionId) => {
           checkIfEventisEnabled('media').then(_ => {
             message.downloadMedia().then(messageMedia => {
               triggerWebhook(sessionWebhook, sessionId, 'media', { messageMedia, message })
-            }).catch(e => {
-              console.log('Download media error:', e.message)
+            }).catch(error => {
+              logger.error({ sessionId, err: error }, 'Failed to download media')
             })
           })
         }
         if (setMessagesAsSeen) {
-          const chat = await message.getChat()
-          chat.sendSeen()
+          sendMessageSeenStatus(message)
         }
       })
     })
@@ -287,8 +286,7 @@ const initializeEvents = (client, sessionId) => {
       client.on('message_ack', async (message, ack) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_ack', { message, ack })
         if (setMessagesAsSeen) {
-          const chat = await message.getChat()
-          chat.sendSeen()
+          sendMessageSeenStatus(message)
         }
       })
     })
@@ -298,8 +296,7 @@ const initializeEvents = (client, sessionId) => {
       client.on('message_create', async (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_create', { message })
         if (setMessagesAsSeen) {
-          const chat = await message.getChat()
-          chat.sendSeen()
+          sendMessageSeenStatus(message)
         }
       })
     })
@@ -407,7 +404,7 @@ const deleteSessionFolder = async (sessionId) => {
     }
     await fs.promises.rm(resolvedTargetDirPath, { recursive: true, force: true })
   } catch (error) {
-    console.log('Folder deletion error', error)
+    logger.error({ sessionId, err: error }, 'Folder deletion error')
     throw error
   }
 }
@@ -437,7 +434,7 @@ const reloadSession = async (sessionId) => {
     sessions.delete(sessionId)
     await setupSession(sessionId)
   } catch (error) {
-    console.log(error)
+    logger.error({ sessionId, err: error }, 'Failed to reload session')
     throw error
   }
 }
@@ -452,11 +449,11 @@ const deleteSession = async (sessionId, validation) => {
     client.pupPage?.removeAllListeners('error')
     if (validation.success) {
       // Client Connected, request logout
-      console.log(`Logging out session ${sessionId}`)
+      logger.info({ sessionId }, 'Logging out session')
       await client.logout()
     } else if (validation.message === 'session_not_connected') {
       // Client not Connected, request destroy
-      console.log(`Destroying session ${sessionId}`)
+      logger.info({ sessionId }, 'Destroying session')
       await client.destroy()
     }
     // Wait 10 secs for client.pupBrowser to be disconnected before deleting the folder
@@ -468,7 +465,7 @@ const deleteSession = async (sessionId, validation) => {
     await deleteSessionFolder(sessionId)
     sessions.delete(sessionId)
   } catch (error) {
-    console.log(error)
+    logger.error({ sessionId, err: error }, 'Failed to delete session')
     throw error
   }
 }
@@ -491,7 +488,7 @@ const flushSessions = async (deleteOnlyInactive) => {
       }
     }
   } catch (error) {
-    console.log(error)
+    logger.error(error, 'Failed to flush sessions')
     throw error
   }
 }
