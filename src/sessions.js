@@ -5,6 +5,7 @@ const sessions = new Map()
 const { baseWebhookURL, sessionFolderPath, maxAttachmentSize, setMessagesAsSeen, webVersion, webVersionCacheType, recoverSessions, chromeBin, headless, releaseBrowserLock } = require('./config')
 const { triggerWebhook, waitForNestedObject, checkIfEventisEnabled, sendMessageSeenStatus } = require('./utils')
 const { logger } = require('./logger')
+const { initWebSocketServer, terminateWebSocketServer, triggerWebSocket } = require('./websocket')
 
 // Function to validate if the session is ready
 const validateSession = async (sessionId) => {
@@ -143,6 +144,7 @@ const setupSession = async (sessionId) => {
       throw error
     }
 
+    initWebSocketServer(sessionId)
     initializeEvents(client, sessionId)
 
     // Save the session to the Map
@@ -181,6 +183,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('auth_failure', (msg) => {
         triggerWebhook(sessionWebhook, sessionId, 'status', { msg })
+        triggerWebSocket(sessionId, 'status', { msg })
       })
     })
 
@@ -188,6 +191,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('authenticated', () => {
         triggerWebhook(sessionWebhook, sessionId, 'authenticated')
+        triggerWebSocket(sessionId, 'authenticated')
       })
     })
 
@@ -195,6 +199,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('call', async (call) => {
         triggerWebhook(sessionWebhook, sessionId, 'call', { call })
+        triggerWebSocket(sessionId, 'call', { call })
       })
     })
 
@@ -202,6 +207,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('change_state', state => {
         triggerWebhook(sessionWebhook, sessionId, 'change_state', { state })
+        triggerWebSocket(sessionId, 'change_state', { state })
       })
     })
 
@@ -209,6 +215,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('disconnected', (reason) => {
         triggerWebhook(sessionWebhook, sessionId, 'disconnected', { reason })
+        triggerWebSocket(sessionId, 'disconnected', { reason })
       })
     })
 
@@ -216,6 +223,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('group_join', (notification) => {
         triggerWebhook(sessionWebhook, sessionId, 'group_join', { notification })
+        triggerWebSocket(sessionId, 'group_join', { notification })
       })
     })
 
@@ -223,6 +231,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('group_leave', (notification) => {
         triggerWebhook(sessionWebhook, sessionId, 'group_leave', { notification })
+        triggerWebSocket(sessionId, 'group_leave', { notification })
       })
     })
 
@@ -230,6 +239,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('group_admin_changed', (notification) => {
         triggerWebhook(sessionWebhook, sessionId, 'group_admin_changed', { notification })
+        triggerWebSocket(sessionId, 'group_admin_changed', { notification })
       })
     })
 
@@ -237,6 +247,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('group_membership_request', (notification) => {
         triggerWebhook(sessionWebhook, sessionId, 'group_membership_request', { notification })
+        triggerWebSocket(sessionId, 'group_membership_request', { notification })
       })
     })
 
@@ -244,6 +255,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('group_update', (notification) => {
         triggerWebhook(sessionWebhook, sessionId, 'group_update', { notification })
+        triggerWebSocket(sessionId, 'group_update', { notification })
       })
     })
 
@@ -251,6 +263,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('loading_screen', (percent, message) => {
         triggerWebhook(sessionWebhook, sessionId, 'loading_screen', { percent, message })
+        triggerWebSocket(sessionId, 'loading_screen', { percent, message })
       })
     })
 
@@ -258,6 +271,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('media_uploaded', (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'media_uploaded', { message })
+        triggerWebSocket(sessionId, 'media_uploaded', { message })
       })
     })
 
@@ -265,11 +279,13 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message', async (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'message', { message })
+        triggerWebSocket(sessionId, 'message', { message })
         if (message.hasMedia && message._data?.size < maxAttachmentSize) {
           // custom service event
           checkIfEventisEnabled('media').then(_ => {
             message.downloadMedia().then(messageMedia => {
               triggerWebhook(sessionWebhook, sessionId, 'media', { messageMedia, message })
+              triggerWebSocket(sessionId, 'media', { messageMedia, message })
             }).catch(error => {
               logger.error({ sessionId, err: error }, 'Failed to download media')
             })
@@ -285,6 +301,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_ack', async (message, ack) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_ack', { message, ack })
+        triggerWebSocket(sessionId, 'message_ack', { message, ack })
         if (setMessagesAsSeen) {
           sendMessageSeenStatus(message)
         }
@@ -295,6 +312,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_create', async (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_create', { message })
+        triggerWebSocket(sessionId, 'message_create', { message })
         if (setMessagesAsSeen) {
           sendMessageSeenStatus(message)
         }
@@ -305,6 +323,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_reaction', (reaction) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_reaction', { reaction })
+        triggerWebSocket(sessionId, 'message_reaction', { reaction })
       })
     })
 
@@ -312,6 +331,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_edit', (message, newBody, prevBody) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_edit', { message, newBody, prevBody })
+        triggerWebSocket(sessionId, 'message_edit', { message, newBody, prevBody })
       })
     })
 
@@ -319,6 +339,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_ciphertext', (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_ciphertext', { message })
+        triggerWebSocket(sessionId, 'message_ciphertext', { message })
       })
     })
 
@@ -326,6 +347,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_revoke_everyone', async (message) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_revoke_everyone', { message })
+        triggerWebSocket(sessionId, 'message_revoke_everyone', { message })
       })
     })
 
@@ -333,6 +355,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('message_revoke_me', async (message, revokedMsg) => {
         triggerWebhook(sessionWebhook, sessionId, 'message_revoke_me', { message, revokedMsg })
+        triggerWebSocket(sessionId, 'message_revoke_me', { message, revokedMsg })
       })
     })
 
@@ -342,6 +365,7 @@ const initializeEvents = (client, sessionId) => {
     checkIfEventisEnabled('qr')
       .then(_ => {
         triggerWebhook(sessionWebhook, sessionId, 'qr', { qr })
+        triggerWebSocket(sessionId, 'qr', { qr })
       })
   })
 
@@ -349,6 +373,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('ready', () => {
         triggerWebhook(sessionWebhook, sessionId, 'ready')
+        triggerWebSocket(sessionId, 'ready')
       })
     })
 
@@ -356,6 +381,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('contact_changed', async (message, oldId, newId, isContact) => {
         triggerWebhook(sessionWebhook, sessionId, 'contact_changed', { message, oldId, newId, isContact })
+        triggerWebSocket(sessionId, 'contact_changed', { message, oldId, newId, isContact })
       })
     })
 
@@ -363,6 +389,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('chat_removed', async (chat) => {
         triggerWebhook(sessionWebhook, sessionId, 'chat_removed', { chat })
+        triggerWebSocket(sessionId, 'chat_removed', { chat })
       })
     })
 
@@ -370,6 +397,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('chat_archived', async (chat, currState, prevState) => {
         triggerWebhook(sessionWebhook, sessionId, 'chat_archived', { chat, currState, prevState })
+        triggerWebSocket(sessionId, 'chat_archived', { chat, currState, prevState })
       })
     })
 
@@ -377,6 +405,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('unread_count', async (chat) => {
         triggerWebhook(sessionWebhook, sessionId, 'unread_count', { chat })
+        triggerWebSocket(sessionId, 'unread_count', { chat })
       })
     })
 
@@ -384,6 +413,7 @@ const initializeEvents = (client, sessionId) => {
     .then(_ => {
       client.on('vote_update', async (vote) => {
         triggerWebhook(sessionWebhook, sessionId, 'vote_update', { vote })
+        triggerWebSocket(sessionId, 'vote_update', { vote })
       })
     })
 }
@@ -447,6 +477,11 @@ const deleteSession = async (sessionId, validation) => {
     }
     client.pupPage?.removeAllListeners('close')
     client.pupPage?.removeAllListeners('error')
+    try {
+      await terminateWebSocketServer(sessionId)
+    } catch (error) {
+      logger.error({ sessionId, err: error }, 'Failed to terminate WebSocket server')
+    }
     if (validation.success) {
       // Client Connected, request logout
       logger.info({ sessionId }, 'Logging out session')
@@ -462,8 +497,8 @@ const deleteSession = async (sessionId, validation) => {
       await new Promise(resolve => setTimeout(resolve, 1000))
       maxDelay++
     }
-    await deleteSessionFolder(sessionId)
     sessions.delete(sessionId)
+    await deleteSessionFolder(sessionId)
   } catch (error) {
     logger.error({ sessionId, err: error }, 'Failed to delete session')
     throw error

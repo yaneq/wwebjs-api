@@ -149,9 +149,22 @@ For example, if you have the sessionId defined as `DEMO`, the environment variab
 
 By setting the `DISABLED_CALLBACKS` environment variable you can specify what events you are **not** willing to receive on your webhook.
 
+By setting the `ENABLE_WEBHOOK` environment to `FALSE` you can disable webhook dispatching. This will help you if you want to switch to websocket method(see below).
+
 ### Scanning QR code
 
 In order to validate a new WhatsApp Web instance you need to scan the QR code using your mobile phone. Official documentation can be found at (https://faq.whatsapp.com/1079327266110265/?cms_platform=android) page. The service itself delivers the QR code content as a webhook event or you can use the REST endpoints (`/session/qr/:sessionId` or `/session/qr/:sessionId/image` to get the QR code as a png image). 
+
+### WebSocket mode
+The service can dispatch realtime events through websocket connection. By default, the websocket is not activated, so you need manually set the `ENABLE_WEBSOCKET` environment variable to activate it. The server activates a new websocket instance per each active session. The websocket path is `/ws/:sessionId`, where sessionId is your configured session name. The websocket supports ping/pong scheme to keep the socket running.
+The below example shows how to receive the events for **test** session.
+```
+const ws = new WebSocket('ws://127.0.0.1:3000/ws/test');
+
+ws.on('message', (data) => {
+    // consume the events
+});
+```
 
 ## Deploy to Production
 

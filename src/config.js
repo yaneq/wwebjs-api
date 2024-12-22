@@ -19,6 +19,8 @@ const chromeBin = process.env.CHROME_BIN || null
 const headless = process.env.HEADLESS ? (process.env.HEADLESS).toLowerCase() === 'true' : true
 const releaseBrowserLock = process.env.RELEASE_BROWSER_LOCK ? (process.env.RELEASE_BROWSER_LOCK).toLowerCase() === 'true' : true
 const logLevel = process.env.LOGLEVEL || 'info'
+const enableWebHook = process.env.ENABLE_WEBHOOK ? (process.env.ENABLE_WEBHOOK).toLowerCase() === 'true' : true
+const enableWebSocket = process.env.ENABLE_WEBSOCKET ? (process.env.ENABLE_WEBSOCKET).toLowerCase() === 'true' : false
 
 module.exports = {
   sessionFolderPath,
@@ -37,5 +39,7 @@ module.exports = {
   chromeBin,
   headless,
   releaseBrowserLock,
-  logLevel
+  logLevel,
+  enableWebHook,
+  enableWebSocket
 }
