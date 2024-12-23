@@ -54,7 +54,7 @@ const triggerWebSocket = (sessionId, dataType, data) => {
 const handleUpgrade = (request, socket, head) => {
   const baseUrl = 'ws://' + request.headers.host + '/'
   const { pathname } = new URL(request.url, baseUrl)
-  if (pathname.startsWith('/ws')) {
+  if (pathname.startsWith('/ws/')) {
     const sessionId = pathname.split('/')[2]
     const server = wssMap.get(sessionId)
     if (server) {
