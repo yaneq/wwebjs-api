@@ -6,8 +6,8 @@ const { logger } = require('./logger')
 const triggerWebhook = (webhookURL, sessionId, dataType, data) => {
   if (enableWebHook) {
     axios.post(webhookURL, { dataType, data, sessionId }, { headers: { 'x-api-key': globalApiKey } })
-      .then(() => logger.debug({ sessionId, dataType, data: data || '' }, `New webhook message sent to ${webhookURL}`))
-      .catch(error => logger.error({ sessionId, dataType, err: error, data: data || '' }, `Failed to send new webhook message to ${webhookURL}`))
+      .then(() => logger.debug({ sessionId, dataType, data: data || '' }, `Webhook message sent to ${webhookURL}`))
+      .catch(error => logger.error({ sessionId, dataType, err: error, data: data || '' }, `Failed to send webhook message to ${webhookURL}`))
   }
 }
 
