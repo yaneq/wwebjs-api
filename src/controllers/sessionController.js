@@ -291,11 +291,60 @@ const terminateAllSessions = async (req, res) => {
   }
 }
 
+/**
+ * Request authentication via pairing code instead of QR code.
+ *
+ * @async
+ * @function
+ * @param {Object} req - The HTTP request object containing the chatId and sessionId.
+ * @param {string} req.body.phoneNumber - The phone number in international, symbol-free format (e.g. 12025550108 for US, 551155501234 for Brazil).
+ * @param {boolean} req.body.showNotification - Show notification to pair on phone number.
+ * @param {string} req.params.sessionId - The unique identifier of the session associated with the client to use.
+ * @param {Object} res - The HTTP response object.
+ * @returns {Promise<Object>} - A Promise that resolves with a JSON object containing a success flag and the result of the operation.
+ * @throws {Error} - If an error occurs during the operation, it is thrown and handled by the catch block.
+ */
+const requestPairingCode = async (req, res) => {
+  /*
+    #swagger.summary = 'Request authentication via pairing code'
+    #swagger.requestBody = {
+      required: true,
+      schema: {
+        type: 'object',
+        properties: {
+          phoneNumber: {
+            type: 'string',
+            description: 'Phone number in international, symbol-free format',
+            example: '12025550108'
+          },
+          showNotification: {
+            type: 'boolean',
+            description: 'Show notification to pair on phone number',
+            example: true
+          },
+        }
+      },
+    }
+  */
+  try {
+    const { phoneNumber, showNotification = true } = req.body
+    const client = sessions.get(req.params.sessionId)
+    if (!client) {
+      return res.json({ success: false, message: 'session_not_found' })
+    }
+    const result = await client.requestPairingCode(phoneNumber, showNotification)
+    res.json({ success: true, result })
+  } catch (error) {
+    sendErrorResponse(res, 500, error.message)
+  }
+}
+
 module.exports = {
   startSession,
   statusSession,
   sessionQrCode,
   sessionQrCodeImage,
+  requestPairingCode,
   restartSession,
   terminateSession,
   terminateInactiveSessions,
