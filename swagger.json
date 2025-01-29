@@ -106,6 +106,52 @@
         ]
       }
     },
+    "/session/getSessions": {
+      "get": {
+        "tags": [
+          "Session"
+        ],
+        "summary": "Get all sessions",
+        "description": "Get all sessions.",
+        "responses": {
+          "200": {
+            "description": "Retrieved all sessions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetSessionsResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/session/start/{sessionId}": {
       "get": {
         "tags": [
@@ -11068,6 +11114,23 @@
         },
         "xml": {
           "name": "ForbiddenResponse"
+        }
+      },
+      "GetSessionsResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "result": {
+            "type": "array",
+            "example": [],
+            "items": {}
+          }
+        },
+        "xml": {
+          "name": "GetSessionsResponse"
         }
       }
     },
