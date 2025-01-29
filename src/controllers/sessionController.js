@@ -339,6 +339,30 @@ const requestPairingCode = async (req, res) => {
   }
 }
 
+/**
+ * Get all sessions.
+ *
+ * @function
+ * @async
+ * @param {Object} req - The HTTP request object.
+ * @param {Object} res - The HTTP response object.
+ * @returns {<Object>}
+ */
+const getSessions = async (req, res) => {
+  // #swagger.summary = 'Get all sessions'
+  // #swagger.description = 'Get all sessions.'
+  /* #swagger.responses[200] = {
+      description: "Retrieved all sessions.",
+      content: {
+        "application/json": {
+          schema: { "$ref": "#/definitions/GetSessionsResponse" }
+        }
+      }
+    }
+  */
+  return res.json({ success: true, result: Array.from(sessions.keys()) })
+}
+
 module.exports = {
   startSession,
   statusSession,
@@ -348,5 +372,6 @@ module.exports = {
   restartSession,
   terminateSession,
   terminateInactiveSessions,
-  terminateAllSessions
+  terminateAllSessions,
+  getSessions
 }

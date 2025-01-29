@@ -72,6 +72,10 @@ const doc = {
     ForbiddenResponse: {
       success: false,
       error: 'Invalid API key'
+    },
+    GetSessionsResponse: {
+      success: true,
+      result: []
     }
   }
 }
