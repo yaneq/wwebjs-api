@@ -189,6 +189,7 @@ const initializeEvents = (client, sessionId) => {
 
   checkIfEventisEnabled('authenticated')
     .then(_ => {
+      client.qr = null
       client.on('authenticated', () => {
         triggerWebhook(sessionWebhook, sessionId, 'authenticated')
         triggerWebSocket(sessionId, 'authenticated')
@@ -360,8 +361,18 @@ const initializeEvents = (client, sessionId) => {
     })
 
   client.on('qr', (qr) => {
+    // by default QR code is being updated every 20 seconds
+    if (client.qrClearTimeout) {
+      clearTimeout(client.qrClearTimeout)
+    }
     // inject qr code into session
     client.qr = qr
+    client.qrClearTimeout = setTimeout(() => {
+      if (client.qr) {
+        logger.warn({ sessionId }, 'Removing expired QR code')
+        client.qr = null
+      }
+    }, 30000)
     checkIfEventisEnabled('qr')
       .then(_ => {
         triggerWebhook(sessionWebhook, sessionId, 'qr', { qr })
