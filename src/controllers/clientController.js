@@ -64,7 +64,7 @@ const sendMessage = async (req, res) => {
   */
 
   try {
-    const { chatId, content, contentType, options } = req.body
+    const { chatId, content, contentType, options, mediaFromURLOptions = {} } = req.body
     const client = sessions.get(req.params.sessionId)
 
     let messageOut
@@ -79,7 +79,7 @@ const sendMessage = async (req, res) => {
         messageOut = await client.sendMessage(chatId, content, options)
         break
       case 'MessageMediaFromURL': {
-        const messageMediaFromURL = await MessageMedia.fromUrl(content, { unsafeMime: true })
+        const messageMediaFromURL = await MessageMedia.fromUrl(content, { unsafeMime: true, ...mediaFromURLOptions })
         messageOut = await client.sendMessage(chatId, messageMediaFromURL, options)
         break
       }
