@@ -36,6 +36,7 @@ sessionRouter.use(middleware.apikey)
 sessionRouter.use(middleware.sessionSwagger)
 routes.use('/session', sessionRouter)
 
+sessionRouter.get('/getSessions', sessionController.getSessions)
 sessionRouter.get('/start/:sessionId', middleware.sessionNameValidation, sessionController.startSession)
 sessionRouter.get('/status/:sessionId', middleware.sessionNameValidation, sessionController.statusSession)
 sessionRouter.get('/qr/:sessionId', middleware.sessionNameValidation, sessionController.sessionQrCode)
@@ -101,6 +102,7 @@ clientRouter.post('/syncHistory/:sessionId', [middleware.sessionNameValidation, 
 clientRouter.post('/getContactDeviceCount/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getContactDeviceCount)
 clientRouter.post('/getCountryCode/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getCountryCode)
 clientRouter.post('/getFormattedNumber/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.getFormattedNumber)
+clientRouter.post('/openChatWindow/:sessionId', [middleware.sessionNameValidation, middleware.sessionValidation], clientController.openChatWindow)
 
 /**
  * ================
